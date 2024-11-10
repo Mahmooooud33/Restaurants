@@ -3,15 +3,10 @@ using Restaurants.Domain.Entities;
 
 namespace Restaurants.Infrastructure.Data;
 
-internal class RestaurantsDbContext : DbContext
+internal class RestaurantsDbContext(DbContextOptions<RestaurantsDbContext> options) : DbContext(options)
 {
     internal DbSet<Restaurant> Restaurants { get; set; }
     internal DbSet<Dish> Dishes { get; set; }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS;Database=RestaurantsDb;Trusted_Connection=True;TrustServerCertificate=True;");
-    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -25,5 +20,4 @@ internal class RestaurantsDbContext : DbContext
             .WithOne()
             .HasForeignKey(d => d.RestaurantId);
     }
-
 }
