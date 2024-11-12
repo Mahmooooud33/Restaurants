@@ -1,5 +1,5 @@
-﻿using Restaurants.Application.Restaurants.DTOs;
-using Restaurants.Domain.Entities;
+﻿using Restaurants.Application.Restaurants.Dtos;
+using Restaurants.Application.Restaurants.Dtos;
 
 namespace Restaurants.Application.Restaurants
 {
@@ -7,5 +7,6 @@ namespace Restaurants.Application.Restaurants
     {
         Task<IEnumerable<RestaurantDto>> GetAll();
         Task<RestaurantDto?> GetById(int id);
+        Task<int> Create(CreateRestaurantDto dto);
     }
 }
