@@ -15,7 +15,8 @@ public class RestaurantDto
     public string? PostalCode { get; set; }
     public List<DishDto> Dishes { get; set; } = [];
 
-    public static RestaurantDto? FromEntity(Restaurant? restaurant)
+    //Manual Mapping
+    /*public static RestaurantDto? FromEntity(Restaurant? restaurant)
     {
         if (restaurant is null) return null;
 
@@ -31,5 +32,5 @@ public class RestaurantDto
             PostalCode = restaurant.Address?.PostalCode,
             Dishes = restaurant.Dishes.Select(DishDto.FromEntity).ToList()
         };
-    }
+    }*/
 }

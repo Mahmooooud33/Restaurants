@@ -11,7 +11,8 @@ public class DishDto
     public decimal Price { get; set; }
     public int? KiloCalories { get; set; }
 
-    public static DishDto FromEntity(Dish dish)
+    // Manual mapping
+    /*public static DishDto FromEntity(Dish dish)
     {
         return new DishDto()
         {
@@ -21,5 +22,5 @@ public class DishDto
             Price = dish.Price,
             KiloCalories = dish.KiloCalories
         };
-    }
+    }*/
 }
