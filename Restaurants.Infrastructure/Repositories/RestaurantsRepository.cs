@@ -30,4 +30,9 @@ internal class RestaurantsRepository(RestaurantsDbContext dbContext)
             .FirstOrDefaultAsync(x => x.Id == id);
         return restaurants;
     }
+
+    public bool IsRestaurantNameExists(string name)
+    {
+        return dbContext.Restaurants.Any(x => x.Name == name);
+    }
 }

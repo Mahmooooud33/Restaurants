@@ -14,6 +14,15 @@ POST {{Restaurants.API_HostAddress}}/api/restaurants
 Content-Type: application/json
 
 {
+  "name": "The Rustic Grill",
+  "description": "A family-friendly grill house known for its hearty BBQ and rustic ambiance.",
+  "category": "BBQ",
+  "hasDelivery": false,
+  "contactEmail": "support@rusticgrill.com",
+  "contactNumber": "+1-555-2468",
+  "city": "Austin",
+  "street": "321 Smoky Ridge Rd",
+  "postalCode": "73-301"
 }
 
 ###

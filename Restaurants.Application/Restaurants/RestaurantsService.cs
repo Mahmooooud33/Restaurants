@@ -36,4 +36,9 @@ internal class RestaurantsService(IRestaurantsRepository restaurantsRepository,
 
         return restaurantDto;
     }
+
+    public bool IsRestaurantNameExists(string name)
+    {
+        return restaurantsRepository.IsRestaurantNameExists(name);
+    }
 }
