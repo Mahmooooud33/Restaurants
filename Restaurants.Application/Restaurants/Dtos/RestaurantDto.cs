@@ -1,9 +1,8 @@
 ﻿using Restaurants.Application.Dishes.Dtos;
-using Restaurants.Domain.Entities;
 
 namespace Restaurants.Application.Restaurants.Dtos;
 
-public class RestaurantDto
+public record RestaurantDto
 {
     public int Id { get; set; }
     public string Name { get; set; } = default!;
@@ -14,23 +13,4 @@ public class RestaurantDto
     public string? Street { get; set; }
     public string? PostalCode { get; set; }
     public List<DishDto> Dishes { get; set; } = [];
-
-    //Manual Mapping
-    /*public static RestaurantDto? FromEntity(Restaurant? restaurant)
-    {
-        if (restaurant is null) return null;
-
-        return new RestaurantDto()
-        {
-            Category = restaurant.Category,
-            Id = restaurant.Id,
-            Name = restaurant.Name,
-            Description = restaurant.Description,
-            HasDelivery = restaurant.HasDelivery,
-            City = restaurant.Address?.City,
-            Street = restaurant.Address?.Street,
-            PostalCode = restaurant.Address?.PostalCode,
-            Dishes = restaurant.Dishes.Select(DishDto.FromEntity).ToList()
-        };
-    }*/
 }
