@@ -6,7 +6,7 @@ GET {{Restaurants.API_HostAddress}}/api/restaurants
 
 ###
 
-GET {{Restaurants.API_HostAddress}}/api/restaurants/10
+GET {{Restaurants.API_HostAddress}}/api/restaurants/11
 
 ###
 
@@ -14,15 +14,15 @@ POST {{Restaurants.API_HostAddress}}/api/restaurants
 Content-Type: application/json
 
 {
-  "name": "Quick Bites",
-  "description": "Fast and delicious meals on the go.",
+  "name": "Morning Bliss Cafe",
+  "description": "A charming cafe serving artisanal coffee and breakfast all day.",
   "category": "Italian",
   "hasDelivery": false,
-  "contactEmail": "info@quickbites.com",
-  "contactNumber": "+1987654321",
-  "city": "Los Angeles",
-  "street": "456 Sunset Blvd",
-  "postalCode": "90-028"
+  "contactEmail": "contact@morningbliss.com",
+  "contactNumber": "+15557890",
+  "city": "Portland",
+  "street": "555 Sunrise Lane",
+  "postalCode": "97-201"
 }
 
 ###
@@ -31,13 +31,13 @@ DELETE {{Restaurants.API_HostAddress}}/api/restaurants/8
 
 ###
 
-PATCH {{Restaurants.API_HostAddress}}/api/restaurants/9
+PATCH {{Restaurants.API_HostAddress}}/api/restaurants/11
 Content-Type: application/json
 
 {
-  "name": "Gourmet Delight",
-  "description": "A fine dining experience with exquisite cuisine.",
-  "hasDelivery": true
+  "name": "Morning Bliss Cafe",
+  "description": "A charming cafe serving artisanal coffee and breakfast all day.",
+  "hasDelivery": false
 }
 
 ###
