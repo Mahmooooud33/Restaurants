@@ -15,6 +15,12 @@ internal class RestaurantsRepository(RestaurantsDbContext dbContext)
         return entity.Id;
     }
 
+    public async Task Delete(Restaurant entity)
+    {
+        dbContext.Remove(entity);
+        await dbContext.SaveChangesAsync();
+    }
+
     public async Task<IEnumerable<Restaurant>> GetAllAsync()
     {
         var resturants = await dbContext.Restaurants
@@ -31,8 +37,13 @@ internal class RestaurantsRepository(RestaurantsDbContext dbContext)
         return restaurants;
     }
 
-    public bool IsRestaurantNameExists(string name)
+    public async Task<bool> IsRestaurantNameExistsAsync(string name)
     {
-        return dbContext.Restaurants.Any(x => x.Name == name);
+        return await dbContext.Restaurants.AnyAsync(x => x.Name == name);
+    }
+
+    public async Task Update()
+    {
+        await dbContext.SaveChangesAsync();
     }
 }

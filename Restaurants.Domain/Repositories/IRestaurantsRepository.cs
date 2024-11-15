@@ -7,5 +7,7 @@ public interface IRestaurantsRepository
     Task<IEnumerable<Restaurant>> GetAllAsync();
     Task<Restaurant?> GetByIdAsync(int id);
     Task<int> Create(Restaurant entity);
-    bool IsRestaurantNameExists(string name);
+    Task<bool> IsRestaurantNameExistsAsync(string name);
+    Task Delete(Restaurant entity);
+    Task Update();
 }

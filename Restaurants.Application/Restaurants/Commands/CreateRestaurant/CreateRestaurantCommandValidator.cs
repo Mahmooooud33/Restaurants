@@ -1,21 +1,15 @@
 ﻿using FluentValidation;
-using Restaurants.Application.Restaurants.Dtos;
 
-namespace Restaurants.Application.Restaurants.Validators;
+namespace Restaurants.Application.Restaurants.Commands.CreateRestaurant;
 
-public class CreateRestaurantDtoValidator : AbstractValidator<CreateRestaurantDto>
+public class CreateRestaurantCommandValidator : AbstractValidator<CreateRestaurantCommand>
 {
-    private readonly IRestaurantsService _restaurantService;
     private readonly List<string> _validCategories = ["Italian", "Mexican", "Japanese", "Indian", "American"];
 
-    public CreateRestaurantDtoValidator(IRestaurantsService restaurantService)
+    public CreateRestaurantCommandValidator()
     {
-        _restaurantService = restaurantService;
-
         RuleFor(dto => dto.Name)
-            .Length(3, 50)
-            .Must(name => !_restaurantService.IsRestaurantNameExists(name))
-            .WithMessage("This restaurant name is already in use.");
+            .Length(3, 50);
 
         RuleFor(dto => dto.Description)
             .NotEmpty().WithMessage("Description is required.");
