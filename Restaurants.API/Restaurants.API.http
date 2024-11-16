@@ -1,15 +1,18 @@
-@hostname=https://localhost
+﻿@hostname=https://localhost
 @port=7227
 @Restaurants.API_HostAddress = https://localhost:7227
 
+# ===================================
+# Region: Dishes Endpoints
+# ===================================
+
+### Get All Restaurants
 GET {{Restaurants.API_HostAddress}}/api/restaurants
 
-###
-
+### Get Single Restaurant
 GET {{Restaurants.API_HostAddress}}/api/restaurants/13
 
-###
-
+### Create New Restaurant
 POST {{Restaurants.API_HostAddress}}/api/restaurants
 Content-Type: application/json
 
@@ -25,12 +28,10 @@ Content-Type: application/json
   "postalCode": "97-201"
 }
 
-###
-
+### Delete Restaurant
 DELETE {{Restaurants.API_HostAddress}}/api/restaurants/8
 
-###
-
+### Update Restaurant
 PATCH {{Restaurants.API_HostAddress}}/api/restaurants/11
 Content-Type: application/json
 
@@ -38,6 +39,45 @@ Content-Type: application/json
   "name": "Morning Bliss Cafe",
   "description": "A charming cafe serving artisanal coffee and breakfast all day.",
   "hasDelivery": false
+}
+
+###
+# ===================================
+# Region: Dishes Endpoints
+# ===================================
+
+### Create New Dish for Restaurant
+POST {{Restaurants.API_HostAddress}}/api/restaurant/3/dishes
+Content-Type: application/json
+
+{
+  "name": "Caesar Salad",
+  "description": "Fresh romaine lettuce with Caesar dressing, croutons, and Parmesan cheese.",
+  "price": 7.49,
+  "kiloCalories": 300
+}
+
+### Get All Dishes for a Restaurant
+GET {{Restaurants.API_HostAddress}}/api/restaurant/3/dishes
+
+### Get Single Dish for a Restaurant
+GET {{Restaurants.API_HostAddress}}/api/restaurant/2/dishes/4
+
+### Delete Single Dish for a Restaurant
+DELETE {{Restaurants.API_HostAddress}}/api/restaurant/2/dishes/3
+
+### Delete All Dishes for a Restaurant
+DELETE {{Restaurants.API_HostAddress}}/api/restaurant/2/dishes
+
+###Update Dish for a Restaurant
+PATCH {{Restaurants.API_HostAddress}}/api/restaurant/2/dishes/3
+Content-Type: application/json
+
+{
+  "name": "Spaghetti Bolognese",
+  "description": "A classic Italian pasta dish with rich meat sauce.",
+  "price": 15.99,
+  "kiloCalories": 820
 }
 
 ###

@@ -12,11 +12,12 @@ builder.Services.AddControllers();
 
 builder.Services.AddSwaggerGen();
 
-#region Custom Services
+#region Custom Middlewares
 builder.Services.AddScoped<ErrorHandlingMiddleware>();
 builder.Services.AddScoped<RequestTimeLoggingMiddleware>();
-builder.Services.AddApplication();
 #endregion
+
+builder.Services.AddApplication();
 
 builder.Services.AddInfrastructure(builder.Configuration);
 
@@ -29,10 +30,13 @@ var scope = app.Services.CreateScope();
 var seeder = scope.ServiceProvider.GetRequiredService<IRestaurantSeeder>();
 
 await seeder.Seed();
+
 // Configure the HTTP request pipeline.
+
+#region Custom Middlewares
 app.UseMiddleware<ErrorHandlingMiddleware>();
 app.UseMiddleware<RequestTimeLoggingMiddleware>();
-
+#endregion
 
 app.UseSerilogRequestLogging();
 
