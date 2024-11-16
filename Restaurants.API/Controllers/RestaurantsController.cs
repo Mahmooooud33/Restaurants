@@ -26,7 +26,7 @@ namespace Restaurants.API.Controllers
         {
             var restaurant = await mediator.Send(new GetRestaurantByIdQuery(id));
 
-            if(restaurant == null)
+            if (restaurant == null)
                 return NotFound();
 
             return Ok(restaurant);
@@ -64,7 +64,7 @@ namespace Restaurants.API.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Create(CreateRestaurantCommand command)
         {
-            if(await mediator.Send(new IsRestaurantNameExistsQuery(command.Name)))
+            if (await mediator.Send(new IsRestaurantNameExistsQuery(command.Name)))
                 return BadRequest("Restaurant name already exists");
 
             int id = await mediator.Send(command);
