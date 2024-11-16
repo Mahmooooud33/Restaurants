@@ -6,7 +6,7 @@ GET {{Restaurants.API_HostAddress}}/api/restaurants
 
 ###
 
-GET {{Restaurants.API_HostAddress}}/api/restaurants/11
+GET {{Restaurants.API_HostAddress}}/api/restaurants/13
 
 ###
 
