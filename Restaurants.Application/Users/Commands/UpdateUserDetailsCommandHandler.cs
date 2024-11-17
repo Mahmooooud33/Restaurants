@@ -18,7 +18,7 @@ internal class UpdateUserDetailsCommandHandler(ILogger<UpdateUserDetailsCommandH
 
         var dbUser = await userStore.FindByIdAsync(user!.Id, cancellationToken)
             ?? throw new NotFoundException(nameof(User), user!.Id);
-      
+
         dbUser.FirstName = request.FirstName;
         dbUser.LastName = request.LastName;
         dbUser.FullName = $"{dbUser.FirstName} {dbUser.LastName}";

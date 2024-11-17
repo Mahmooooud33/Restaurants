@@ -11,6 +11,8 @@ public class IdentityController(IMediator mediator) : ControllerBase
 {
     [HttpPatch("user")]
     [Authorize]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> UpdateUserDetatils(UpdateUserDetailsCommand command)
     {
         await mediator.Send(command);

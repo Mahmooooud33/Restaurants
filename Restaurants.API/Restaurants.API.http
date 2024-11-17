@@ -1,6 +1,6 @@
 ﻿@hostname = https://localhost
 @port = 7227
-@token = CfDJ8DfAeHPaQd1PvpvdU91NUDEFNHJBH5iswJB00gGsW9WgDhB2wADFdUJc8J66rWXwhbgffmMJuRDgGc7sDFB6d4vXg9CmkOyLr0wvSKUrnrbBR-pFWE8EWvyR9Hn4t3n9MH7d-8QYBA3WFnPLYKrCfrA9qkMb4WrrWrZnaurGC_lkBMc9rN0QMAy4xpHzRmXk2fZj5UKXNrA4vsyh2LOPycO37kgOKYrPsbEyNZ3LPgqyVY16Iydjcjs59kOzHB5psi-EvRLkgwKvOiPBMcEvBAYpISuzTi5Yer0T6zxUpvKckuKmj0FntKx7JbLEiMyg57Qlk_FoN63MzdJgETy4xKFDuOJJ6q4LPR0Gh4nBoHW20WUlG3KbE87YrXZrNrLgJYtbBQnGK0gAqMkyj9e23wkr7WatPqCv7tsmWgaAhI-xiTcZLJJIFA4XlPBVRCTglK9lo2FS8LWiYMHr315LUEM0SFbeRt6RPhfflUEnqZGO6cxj0BSTLQvtZA9K1AMneKl7xlX0g7Msqi3o4FJAfiCanl2Fx4PgfU2YT7kI6imXxPhjNbhoxXPp_V73fsHW0xnrzbE48siFwmxWMBzVymenFNwK-GIiB92uy-FXUx94U65EAcyh-sSvf1G5-WQMlmTeMffAvZWa1IKnsEwjciRda7A7m4moMlW_xV_4iYr4TZzEkLpT69ayeVu9WTnJeQ
+@token = CfDJ8DfAeHPaQd1PvpvdU91NUDExvEI91-dDkhWIinZrGDCrj283fOZoFhvpYiKB43zsFw_n1Ctbs2i5kNGncz7Y0LF8qwKtPBA7Iq_-TubbmKw1euKvQOb-zbmDecMUS5FyinQXVYO_idJ8LBD4lcPrtHyN0K4ZVaJKG6uusYTWOE3cT-UWNYMdXNjTNmoR-vcmMV6OvVLGnbF0TanacmyQXobZwzMwej-jUiEKpAJGd9yfKuxHA5qKwM1wbxV3a7q5p8wEwEF-Oc3igTuSjT51yebgaq5YCbwcfl4KXmgR-NGuAHedxzKBiaQI6ar468nhfVUZmeB4Hx9cMvyqXcDJqgy-jyB0JCHUyQh9q22E603qTFAA6HeS1aMI69iCZ6mzUvVRGmmS5jGmvl832IUpzuF1z8eFqpYdecvX-PL_OJPXI5gR6eX-f6rDpPDNuVpR_4kduj3t-q0rgtLi6AmJeMrrQis4nhV9hAt83gXaROPzyHQ2cABpxFykaSQxSErjrGtDzVbsp0GJaQZ-Ays26IvQDj0PMUmlyMLkQ6ZSbyogXTuI0kw0FrMonLbqSzRThbc3JA1ckLYJGCHesVRDy1AGJfy-kIgvmSh6x-i52_8lwLq2yIlOM3YKqoQ6Ml2siX3HXkeSuC4L-jt9Vf1-REoLpp302CLeCHELjKLfYqsotS_GoJWks4ieMhu7aKuRyQ
 
 @Restaurants.API_HostAddress = https://localhost:7227
 
@@ -105,3 +105,17 @@ Content-Type: application/json
   "email": "3ZlGd@example.com",
   "password": "Password1!"
 }
+
+### Update User
+PATCH {{Restaurants.API_HostAddress}}/api/identity/user
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "firstName": "Mahmoud",
+  "lastName": "Saleh",
+  "dateOfBirth": "1999-12-15",
+  "nationality": "Egyptian"
+}
+
+
