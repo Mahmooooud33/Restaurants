@@ -14,6 +14,18 @@ namespace Restaurants.API.Controllers
     [Route("api/restaurants")]
     public class RestaurantsController(IMediator mediator) : ControllerBase
     {
+        [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Create(CreateRestaurantCommand command)
+        {
+            if (await mediator.Send(new IsRestaurantNameExistsQuery(command.Name)))
+                return BadRequest("Restaurant name already exists");
+
+            int id = await mediator.Send(command);
+            return CreatedAtAction(nameof(GetById), new { id }, null);
+        }
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<RestaurantDto>>> GetAll()
         {
@@ -32,15 +44,6 @@ namespace Restaurants.API.Controllers
             return Ok(restaurant);
         }
 
-        [HttpDelete("{id}")]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> Delete([FromRoute] int id)
-        {
-            await mediator.Send(new DeleteRestaurantCommand(id));
-            return NoContent();
-        }
-
         [HttpPatch("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -52,16 +55,13 @@ namespace Restaurants.API.Controllers
             return NoContent();
         }
 
-        [HttpPost]
-        [ProducesResponseType(StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Create(CreateRestaurantCommand command)
+        [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> Delete([FromRoute] int id)
         {
-            if (await mediator.Send(new IsRestaurantNameExistsQuery(command.Name)))
-                return BadRequest("Restaurant name already exists");
-
-            int id = await mediator.Send(command);
-            return CreatedAtAction(nameof(GetById), new { id }, null);
-        }
+            await mediator.Send(new DeleteRestaurantCommand(id));
+            return NoContent();
+        }             
     }
 }

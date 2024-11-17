@@ -15,8 +15,10 @@ namespace Restaurants.API.Controllers;
 public class DishesController(IMediator mediator) : ControllerBase
 {
     [HttpPost]
-    public async Task<IActionResult> CreateDish([FromRoute] int restaurantId, CreateDishCommand command) 
-    { 
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> CreateDish([FromRoute] int restaurantId, CreateDishCommand command)
+    {
         command.RestaurantId = restaurantId;
 
         var dishId = await mediator.Send(command);
@@ -37,27 +39,33 @@ public class DishesController(IMediator mediator) : ControllerBase
         return Ok(dish);
     }
 
-    [HttpDelete("{dishId}")]
-    public async Task<IActionResult> DeleteDishForRestaurant([FromRoute] int restaurantId, [FromRoute] int dishId)
-    {
-        await mediator.Send(new DeleteDishForRestaurantCommand(restaurantId, dishId));
-        return NoContent();
-    }
-
-    [HttpDelete]
-    public async Task<IActionResult> DeleteDishesForRestaurant([FromRoute] int restaurantId)
-    {
-        await mediator.Send(new DeleteDishesForRestaurantCommand(restaurantId));
-        return NoContent();
-    }
-
     [HttpPatch("{dishId}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> UpdateDishForRestaurant([FromRoute] int restaurantId, [FromRoute] int dishId, UpdateDishCommand command)
     {
         command.RestaurantId = restaurantId;
         command.DishId = dishId;
 
         await mediator.Send(command);
+        return NoContent();
+    }
+
+    [HttpDelete]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> DeleteDishesForRestaurant([FromRoute] int restaurantId)
+    {
+        await mediator.Send(new DeleteDishesForRestaurantCommand(restaurantId));
+        return NoContent();
+    }
+
+    [HttpDelete("{dishId}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> DeleteDishForRestaurant([FromRoute] int restaurantId, [FromRoute] int dishId)
+    {
+        await mediator.Send(new DeleteDishForRestaurantCommand(restaurantId, dishId));
         return NoContent();
     }
 }

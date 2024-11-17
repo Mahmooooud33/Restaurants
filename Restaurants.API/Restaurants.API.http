@@ -58,7 +58,7 @@ Content-Type: application/json
 }
 
 ### Get All Dishes for a Restaurant
-GET {{Restaurants.API_HostAddress}}/api/restaurant/3/dishes
+GET {{Restaurants.API_HostAddress}}/api/restaurant/2/dishes
 
 ### Get Single Dish for a Restaurant
 GET {{Restaurants.API_HostAddress}}/api/restaurant/2/dishes/4
@@ -81,3 +81,7 @@ Content-Type: application/json
 }
 
 ###
+# ===================================
+# Region: User Endpoints
+# ===================================
+
