@@ -8,6 +8,7 @@ using Restaurants.Application.Restaurants.Dtos;
 using Restaurants.Application.Restaurants.Queries.GetAllRestaurants;
 using Restaurants.Application.Restaurants.Queries.GetRestaurantById;
 using Restaurants.Application.Restaurants.Queries.IsRestaurantNameExists;
+using Restaurants.Domain.Constants;
 
 namespace Restaurants.API.Controllers
 {
@@ -19,6 +20,7 @@ namespace Restaurants.API.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [Authorize(Roles = UserRoles.Owner)]
         public async Task<IActionResult> Create(CreateRestaurantCommand command)
         {
             if (await mediator.Send(new IsRestaurantNameExistsQuery(command.Name)))

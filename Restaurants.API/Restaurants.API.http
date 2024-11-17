@@ -1,6 +1,6 @@
 ﻿@hostname = https://localhost
 @port = 7227
-@token = CfDJ8DfAeHPaQd1PvpvdU91NUDExvEI91-dDkhWIinZrGDCrj283fOZoFhvpYiKB43zsFw_n1Ctbs2i5kNGncz7Y0LF8qwKtPBA7Iq_-TubbmKw1euKvQOb-zbmDecMUS5FyinQXVYO_idJ8LBD4lcPrtHyN0K4ZVaJKG6uusYTWOE3cT-UWNYMdXNjTNmoR-vcmMV6OvVLGnbF0TanacmyQXobZwzMwej-jUiEKpAJGd9yfKuxHA5qKwM1wbxV3a7q5p8wEwEF-Oc3igTuSjT51yebgaq5YCbwcfl4KXmgR-NGuAHedxzKBiaQI6ar468nhfVUZmeB4Hx9cMvyqXcDJqgy-jyB0JCHUyQh9q22E603qTFAA6HeS1aMI69iCZ6mzUvVRGmmS5jGmvl832IUpzuF1z8eFqpYdecvX-PL_OJPXI5gR6eX-f6rDpPDNuVpR_4kduj3t-q0rgtLi6AmJeMrrQis4nhV9hAt83gXaROPzyHQ2cABpxFykaSQxSErjrGtDzVbsp0GJaQZ-Ays26IvQDj0PMUmlyMLkQ6ZSbyogXTuI0kw0FrMonLbqSzRThbc3JA1ckLYJGCHesVRDy1AGJfy-kIgvmSh6x-i52_8lwLq2yIlOM3YKqoQ6Ml2siX3HXkeSuC4L-jt9Vf1-REoLpp302CLeCHELjKLfYqsotS_GoJWks4ieMhu7aKuRyQ
+@token = CfDJ8DfAeHPaQd1PvpvdU91NUDFz5FHXUk8Dsd8m5EReuoJlMifx_uwk9AGVnVdQAd0wBgsX1-JS2PwRfiKCIMT5qCkj4AIepItmwLpaS8-4bhXn2fs6T_iEmaqewlk-hNyQoXbNwd9BZGnMErwZzP_CznGrp7gE0CMTGFtL7-alDRkRFN_lcvNHZvlhIPwzfRCIBNyxinIjptF0qZctFRnSGvh7SjX1vhaJQzczlIWrR-xOu_hVWzfaSKoBzVNTENT_goi2kmKcCd2tLLf4ODie12Wt3qGWZnO1_Bfh0QCvHvgISonJ4_ZEjfDaGQLfkmm4SsfsJFPK1jAN8rW6t21o6SOfKKQa8AbdU6GhKxxXDSznNWqkKA6jZfTzA6IIUP3EVU6I3hXTP2fkvDEbOANgUlnoj-g57UeVFAQLuP4Pk7O7sHmngVcrpq4cTKzxOMlwaz1u50MLRR9sUUr-GGrApN5US76g32P_fvhowMOH7d1XfnRRe98-QC8r8GdFDfqC4irbfZWsXi7Kvc48R0uiTM3jdCav7hio5z_RfCDAw-BBlmIu8JuJFN1YosYSkqkKn1MyBOhJEV8-IF-3afmxhXh8T9g7v8t3oWPPItDOWhvSdv9pViPyUGQ3iFC_jG0qDuqw8VT6mUFDsJe7ob_BDu6MFMW3W5LwsGyl-FjkvkWDK12S_wKn932UrPG23OjQICS8MEseIxqkbtoVpKKAEBt-U4P5Tzi9mN2ETh1ksyf_kSz52gLE4wEY9RFfa0JBIfuRJhBcu41-N6fZ_F2YrQ71BRuPuFbBazIN9IOBaOaY
 
 @Restaurants.API_HostAddress = https://localhost:7227
 
@@ -17,18 +17,19 @@ Authorization: Bearer {{token}}
 
 ### Create New Restaurant
 POST {{Restaurants.API_HostAddress}}/api/restaurants
+Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "name": "Morning Bliss Cafe",
-  "description": "A charming cafe serving artisanal coffee and breakfast all day.",
-  "category": "Italian",
-  "hasDelivery": false,
-  "contactEmail": "contact@morningbliss.com",
-  "contactNumber": "+15557890",
-  "city": "Portland",
-  "street": "555 Sunrise Lane",
-  "postalCode": "97-201"
+  "name": "Sushi Haven",
+  "description": "An elegant sushi bar with a wide variety of traditional and fusion rolls.",
+  "category": "Japanese",
+  "hasDelivery": true,
+  "contactEmail": "orders@sushihaven.com",
+  "contactNumber": "+15556543",
+  "city": "Los Angeles",
+  "street": "222 Sakura Blvd",
+  "postalCode": "90-012"
 }
 
 ### Delete Restaurant
@@ -93,7 +94,7 @@ POST {{Restaurants.API_HostAddress}}/api/identity/register
 Content-Type: application/json
 
 {
-  "email": "3ZlGd@example.com",
+  "email": "user@example.com",
   "password": "Password1!"
 }
 
@@ -102,7 +103,7 @@ POST {{Restaurants.API_HostAddress}}/api/identity/login
 Content-Type: application/json
 
 {
-  "email": "3ZlGd@example.com",
+  "email": "owner@example.com",
   "password": "Password1!"
 }
 
@@ -117,5 +118,4 @@ Content-Type: application/json
   "dateOfBirth": "1999-12-15",
   "nationality": "Egyptian"
 }
-
 
