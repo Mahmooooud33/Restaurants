@@ -8,6 +8,8 @@ public static class WebApplicationBuilderExtensions
 {
     public static void AddPresentationServices(this WebApplicationBuilder builder)
     {
+        builder.Services.AddAuthentication();
+
         builder.Services.AddControllers();
 
         #region Swagger

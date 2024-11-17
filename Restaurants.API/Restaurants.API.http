@@ -1,5 +1,7 @@
-﻿@hostname=https://localhost
-@port=7227
+﻿@hostname = https://localhost
+@port = 7227
+@token = CfDJ8DfAeHPaQd1PvpvdU91NUDEFNHJBH5iswJB00gGsW9WgDhB2wADFdUJc8J66rWXwhbgffmMJuRDgGc7sDFB6d4vXg9CmkOyLr0wvSKUrnrbBR-pFWE8EWvyR9Hn4t3n9MH7d-8QYBA3WFnPLYKrCfrA9qkMb4WrrWrZnaurGC_lkBMc9rN0QMAy4xpHzRmXk2fZj5UKXNrA4vsyh2LOPycO37kgOKYrPsbEyNZ3LPgqyVY16Iydjcjs59kOzHB5psi-EvRLkgwKvOiPBMcEvBAYpISuzTi5Yer0T6zxUpvKckuKmj0FntKx7JbLEiMyg57Qlk_FoN63MzdJgETy4xKFDuOJJ6q4LPR0Gh4nBoHW20WUlG3KbE87YrXZrNrLgJYtbBQnGK0gAqMkyj9e23wkr7WatPqCv7tsmWgaAhI-xiTcZLJJIFA4XlPBVRCTglK9lo2FS8LWiYMHr315LUEM0SFbeRt6RPhfflUEnqZGO6cxj0BSTLQvtZA9K1AMneKl7xlX0g7Msqi3o4FJAfiCanl2Fx4PgfU2YT7kI6imXxPhjNbhoxXPp_V73fsHW0xnrzbE48siFwmxWMBzVymenFNwK-GIiB92uy-FXUx94U65EAcyh-sSvf1G5-WQMlmTeMffAvZWa1IKnsEwjciRda7A7m4moMlW_xV_4iYr4TZzEkLpT69ayeVu9WTnJeQ
+
 @Restaurants.API_HostAddress = https://localhost:7227
 
 # ===================================
@@ -10,7 +12,8 @@
 GET {{Restaurants.API_HostAddress}}/api/restaurants
 
 ### Get Single Restaurant
-GET {{Restaurants.API_HostAddress}}/api/restaurants/13
+GET {{Restaurants.API_HostAddress}}/api/restaurants/9
+Authorization: Bearer {{token}}
 
 ### Create New Restaurant
 POST {{Restaurants.API_HostAddress}}/api/restaurants
@@ -69,7 +72,7 @@ DELETE {{Restaurants.API_HostAddress}}/api/restaurant/2/dishes/3
 ### Delete All Dishes for a Restaurant
 DELETE {{Restaurants.API_HostAddress}}/api/restaurant/2/dishes
 
-###Update Dish for a Restaurant
+### Update Dish for a Restaurant
 PATCH {{Restaurants.API_HostAddress}}/api/restaurant/2/dishes/3
 Content-Type: application/json
 
@@ -85,3 +88,20 @@ Content-Type: application/json
 # Region: User Endpoints
 # ===================================
 
+### Create New User
+POST {{Restaurants.API_HostAddress}}/api/identity/register
+Content-Type: application/json
+
+{
+  "email": "3ZlGd@example.com",
+  "password": "Password1!"
+}
+
+### Login
+POST {{Restaurants.API_HostAddress}}/api/identity/login
+Content-Type: application/json
+
+{
+  "email": "3ZlGd@example.com",
+  "password": "Password1!"
+}
