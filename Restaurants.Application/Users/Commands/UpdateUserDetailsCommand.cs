@@ -1,12 +1,11 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using MediatR;
 
-namespace Restaurants.Domain.Entities;
+namespace Restaurants.Application.Users.Commands;
 
-public class User : IdentityUser
+public record UpdateUserDetailsCommand : IRequest
 {
     public string FirstName { get; set; } = default!;
     public string LastName { get; set; } = default!;
-    public string FullName { get; set; } = default!;
     public DateOnly? DateOfBirth { get; set; }
     public string? Nationality { get; set; }
 }
