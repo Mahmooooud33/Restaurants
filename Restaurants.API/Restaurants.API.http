@@ -1,6 +1,6 @@
 ﻿@hostname = https://localhost
 @port = 7227
-@token = CfDJ8DfAeHPaQd1PvpvdU91NUDGubeZlJZuLpX7BwDbcKAQENDENPI69atNIk7ITeT4lAWVDdiXUBCdiZAuPi_wktbDyzAilsELv6N-yqGysjB0gGf80Qd9DfxuGONPJexUFufISy2hpwXPKK95fW_8KWH9nC2DGOHjjWLB6zv2x5iZpUovcbsxLqjCYoumK_FsOkHXKLKgBdAY3e_zdAFFBIXgeOe3PuG_ICTNYDqyo1b6Ym4KaiBjwhA4uGTbhqT20W7hMr1eRmshJxbi46XOvEWLPeyrS7z1AFrHZcl2uxrjzX2eC1ZxJOn5HQZjeORo2g7UTkSsPwv9MUKDEW6EP2t3-N009X6Z8Aa4RQeYfkOI60kHaxFiX8cJp_PSnSq4l90L_os8-PWU6nrBrfwta91orx5ux05EyZdIUQ0IbiWo3htp61MK81yJEAE1zO8ftpWPqNM18ZFNlGp1yXP2mmJAZHbsOrfXWOkq8xk1DrWegLKE0OmXD5SsEfNhnGYi7GOEiJvvCQ33sCekPOGwJcHcNe-Gm07Q-TyAMaXYAKGLKdz9FX7Z1D8TZR6hr2C4kDfztj4_bpQjfYse6-SLFdjc-Y_85-tepnfgtR_sV_WqCIjBCTR2JxbpImdjSZEO9CdejdeVAysE__HGtklprN-t_QhmBj0UwrzgwW81l3F2pNoVjbI-6Mbmmrx6d0GMDGc6yEpXQB6VFcXQes0B5ExN5dq6g1q1HMY45MmC8yH0krz85qT6Nuc4Vh8FkdXVNH0r-5kUDwah4f-kiVtQlcdg
+@token = CfDJ8DfAeHPaQd1PvpvdU91NUDGUCLCdl6VaAlpijzyB2EB_-3fFECfJZ9zRdl1FSAz56OZNICKaghB9Dw7_z1SXh8-POgfOND2p8GLJjoNbIFPEXsN9hqqwy1xuepeA3Ge6xKYntmiP8_8MZFsuVmkRgsgsZ_Ia0Ifp5Hlk8GrVPByu-NEDKvuDp0lq1mCfuIUHlDzIOl44POo8ekAMQ227nPo33rPSZEdpY06r7ar7_TP2iD-97pmSt1O5VQADRjqOvt7Nw1nN_l7xtzTouzFhUAQGS7xs2ip3Zw0OeiNp-CuWJBL16A9kVIrrrslaKRtSvYRUEUhdW2txRI8fxFoJhziVHiOw4il_ogdKlkfiC6KBfAuMBIghfXijEVh598lcfBRTpLomyddN4PbeSq0V_l0pi2PQtVf17P2ZYtegvnNFlsSTI-XSP-T1Bzm4sM2aGAuo1-qfVLL9aD8dX_cSEz4h_cGKC4kP6LnPkNqf4LIs3PHvP13lghl96LfqVWiAn9tv3UCPJniAA_5rGsZ8t2VpOZzscYTfquNpl3ZwoNValiq2rPeXxFAOeMQBB0s3iBinsKddu5KoEGSJph51tdpbLLX63V96IPaxDo7exOeGtpeos-ptyuZE_vRd_OjMWvUB9VXQ8VnfaFfvpObLsN-prUkuh8UV3JhHs5mxdrn8UySqgkc2-JuA3hEX9OqWfdK6V61g8NU2QPcerBs7KSfILiUfczoy_IRbtqulokLHHuT2zXA-oILLiNMkwONX31I5HHW4-QwDuYvEXOYxtamrXXr1lCoEiv3pnaPE-5JbjMReAx95XJMljRUDu3z5ntx7B1V0AunVm89QxF-RBhmMSiIfFBABGip3mBEv02wB6bnfQGqluEEu9_-XTh2P7Q
 
 @Restaurants.API_HostAddress = https://localhost:7227
 
@@ -12,7 +12,7 @@
 GET {{Restaurants.API_HostAddress}}/api/restaurants
 
 ### Get Single Restaurant
-GET {{Restaurants.API_HostAddress}}/api/restaurants/9
+GET {{Restaurants.API_HostAddress}}/api/restaurants/3
 Authorization: Bearer {{token}}
 
 ### Create New Restaurant
@@ -103,7 +103,7 @@ POST {{Restaurants.API_HostAddress}}/api/identity/login
 Content-Type: application/json
 
 {
-  "email": "3ZlGd@example.com",
+  "email": "owner@example.com",
   "password": "Password1!"
 }
 
@@ -113,10 +113,10 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "firstName": "Mahmoud",
-  "lastName": "Saleh",
-  "dateOfBirth": "1999-12-15",
-  "nationality": "Egyptian"
+  "firstName": "Yahia",
+  "lastName": "Sinwar",
+  "dateOfBirth": "1962-10-19",
+  "nationality": "Palestinian"
 }
 
 ### Assign User Role

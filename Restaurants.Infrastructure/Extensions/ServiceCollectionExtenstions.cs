@@ -17,8 +17,7 @@ public static class ServiceCollectionExtenstions
     {
         var connectionString = configuration.GetConnectionString("RestaurantsDb");
         services.AddDbContext<RestaurantsDbContext>(options => 
-            options.UseSqlServer(connectionString)
-            .EnableSensitiveDataLogging());
+            options.UseSqlServer(connectionString));
 
         services.AddIdentityApiEndpoints<User>()
             .AddRoles<IdentityRole>()
@@ -28,5 +27,7 @@ public static class ServiceCollectionExtenstions
         services.AddScoped<IRestaurantSeeder, RestaurantSeeder>();
         services.AddScoped<IRestaurantsRepository, RestaurantsRepository>();
         services.AddScoped<IDishesRepository, DishesRepository>();
+        services.AddAuthorizationBuilder()
+            .AddPolicy(Policies.HasNationality, builder => builder.RequireClaim(AppClaimTypes.Nationality, "Egyptian", "Palestinian"));
     }
 }
