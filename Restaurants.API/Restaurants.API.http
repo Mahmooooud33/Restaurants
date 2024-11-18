@@ -1,6 +1,6 @@
 ﻿@hostname = https://localhost
 @port = 7227
-@token = CfDJ8DfAeHPaQd1PvpvdU91NUDGUCLCdl6VaAlpijzyB2EB_-3fFECfJZ9zRdl1FSAz56OZNICKaghB9Dw7_z1SXh8-POgfOND2p8GLJjoNbIFPEXsN9hqqwy1xuepeA3Ge6xKYntmiP8_8MZFsuVmkRgsgsZ_Ia0Ifp5Hlk8GrVPByu-NEDKvuDp0lq1mCfuIUHlDzIOl44POo8ekAMQ227nPo33rPSZEdpY06r7ar7_TP2iD-97pmSt1O5VQADRjqOvt7Nw1nN_l7xtzTouzFhUAQGS7xs2ip3Zw0OeiNp-CuWJBL16A9kVIrrrslaKRtSvYRUEUhdW2txRI8fxFoJhziVHiOw4il_ogdKlkfiC6KBfAuMBIghfXijEVh598lcfBRTpLomyddN4PbeSq0V_l0pi2PQtVf17P2ZYtegvnNFlsSTI-XSP-T1Bzm4sM2aGAuo1-qfVLL9aD8dX_cSEz4h_cGKC4kP6LnPkNqf4LIs3PHvP13lghl96LfqVWiAn9tv3UCPJniAA_5rGsZ8t2VpOZzscYTfquNpl3ZwoNValiq2rPeXxFAOeMQBB0s3iBinsKddu5KoEGSJph51tdpbLLX63V96IPaxDo7exOeGtpeos-ptyuZE_vRd_OjMWvUB9VXQ8VnfaFfvpObLsN-prUkuh8UV3JhHs5mxdrn8UySqgkc2-JuA3hEX9OqWfdK6V61g8NU2QPcerBs7KSfILiUfczoy_IRbtqulokLHHuT2zXA-oILLiNMkwONX31I5HHW4-QwDuYvEXOYxtamrXXr1lCoEiv3pnaPE-5JbjMReAx95XJMljRUDu3z5ntx7B1V0AunVm89QxF-RBhmMSiIfFBABGip3mBEv02wB6bnfQGqluEEu9_-XTh2P7Q
+@token = CfDJ8DfAeHPaQd1PvpvdU91NUDGXbvLRIsS8IOlR5GNNjNV0dok6T3OKdFLjYx7z6h0d2zlDvWawTRFRsJiuWfcX2HvbVkqRg75FztFCBD5ZtwEH2-Ep7xJqlM-dOqIvBNcwoZMFn0V8pTclaYjLyHr9IIuyw2U26HfTmdHuAnisuJk3aitoEJdiQFErWnuc7jSWKswZ56J3_xl5aqba6LfIuL0hD-YEyUkBc_7dHb1mX4Gv9PBahX5CumtL17agQa8M957Td14O3v5xY--Mx4wNSfo8qVgNVeC6i0foxYYKp7QNtuWJ8S7Bv7tQP0OXUEtpCEARIbhMLedWXqMJSWcqgHDULNyzSeyerIItVrlPajuPVmgcvR0Mm9YYqyXbG6t_EvPH1DKTOm9_yzebyEAQtf-9XSJz5Z0Do6ionSNX_wb9gUn1JEJTiyvB4V7dgnpSn3b_juQ9TjAnxJWxfcRMuG5A7Zvjh4pXtIxvU6J3oSpaXr7EBuN4rjT99kcGhRMUAAiNKBLxpZj0UaLniO3u5prW-IivQ0sYwcKI__eeyPeTZtGkdq1lV6x5w28jdTyBxVWT2LIe1-n8_31iQpyrIvwjsZrSV_e6rKRCoQzLLCF38oxuOAyjfmykEUhOxLRC15Hryw5QbQzSbSJVTpANGMP7ApOX3is42UWgrrjOsot1z-JZNFlcQI7n41p1Fz_mUcDcBoJyAN5Eb-vuQ7s8eArykRx3HuaW1KXtrNSkw92lFxYL2e5NTfL6kIHryK3A9BkxpxTE4dzyV7FId6_BRNhdm3AMXjXTMjNSm9SbglYE7fK0qtOUPGErwsWl9l64KG5sP3RLnZWXAvX-mWFRSHxNsWSVK4r7WrpKCIlh1dnIsxlB4Y7GYbyD6gZR6tTqug
 
 @Restaurants.API_HostAddress = https://localhost:7227
 
@@ -62,7 +62,8 @@ Content-Type: application/json
 }
 
 ### Get All Dishes for a Restaurant
-GET {{Restaurants.API_HostAddress}}/api/restaurant/2/dishes
+GET {{Restaurants.API_HostAddress}}/api/restaurant/1/dishes
+Authorization: Bearer {{token}}
 
 ### Get Single Dish for a Restaurant
 GET {{Restaurants.API_HostAddress}}/api/restaurant/2/dishes/4
@@ -94,7 +95,7 @@ POST {{Restaurants.API_HostAddress}}/api/identity/register
 Content-Type: application/json
 
 {
-  "email": "user@example.com",
+  "email": "3ZlGd@example.com",
   "password": "Password1!"
 }
 
@@ -113,10 +114,10 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "firstName": "Yahia",
-  "lastName": "Sinwar",
-  "dateOfBirth": "1962-10-19",
-  "nationality": "Palestinian"
+  "firstName": "Mahmoud",
+  "lastName": "Saleh",
+  "dateOfBirth": "2010-10-19",
+  "nationality": "Egyptian"
 }
 
 ### Assign User Role
