@@ -1,6 +1,6 @@
 ﻿@hostname = https://localhost
 @port = 7227
-@token = CfDJ8DfAeHPaQd1PvpvdU91NUDEv24Gb-t3lD92poZSVqa7r4KtSjtqHw-5-5MOtRZG-RxCNPEHWAYFP8-1WNpdEnnrJfxRJn9HFlJ3AdA7WUJUhPsJXNV37HIUxpi22CkcTrzTY3FkVmI-j5m2XHfkpJAt_CgyniD7wjvQANntgLAilq_64KCQI9QSVyKhB1vdlNwaFyhIU7adktMYfSLpPN12OX98Im0nyCsVyWsdc2L3b3abAeIW4WTwDIB-cVvzOtqfKkzNpMxSjiEbIXdz4pR5GBjnwT2kSwAV09Zz60cCzMx5fzR5LWNHanzwcHT9u2oqJ7La6QcYnfgH04lDxQjpns3db4GGDFXL35Kda6bxNg_aUWDtTcy2wRes2iejhTz_nPpSAAvfI18rOyIa97mz_KKWoJMURF11f9CT06-niAuVWi5kMjvzTwCumTFbm8LoxP_mdQYJNNYlYcUNb8YI7Hsxfv3xq-S427v_RvwKawIplr0oulj8pXVJMNYCwFEF_VeCG91Ucf9BoU1EXHADk8a_aLmrtvuxhABYxwGAD0CriTVNNR9wssLNmIfUU5AzQXA4pDZdFmvv0jE6BF7y8dOxRGaDX0UqKPTAV4hxNohUuty3svfvdYEgJm2T-0wpFZ84x20VqtfW4lgRRN1TYoHqbxQ4DHVTO1L1glRIW-L3WUwSiMdcE5NtmRlUu1SwCs1t2YFs-2-huhQW37LTs-O24589Go-UmJWqPtsqkzzJ19194z_3E5lWoBsr5qOI8ViIU5V-3aXGD-I8bT5PlE0O2RQKgVwZKG1H2nS9D
+@token = CfDJ8DfAeHPaQd1PvpvdU91NUDGubeZlJZuLpX7BwDbcKAQENDENPI69atNIk7ITeT4lAWVDdiXUBCdiZAuPi_wktbDyzAilsELv6N-yqGysjB0gGf80Qd9DfxuGONPJexUFufISy2hpwXPKK95fW_8KWH9nC2DGOHjjWLB6zv2x5iZpUovcbsxLqjCYoumK_FsOkHXKLKgBdAY3e_zdAFFBIXgeOe3PuG_ICTNYDqyo1b6Ym4KaiBjwhA4uGTbhqT20W7hMr1eRmshJxbi46XOvEWLPeyrS7z1AFrHZcl2uxrjzX2eC1ZxJOn5HQZjeORo2g7UTkSsPwv9MUKDEW6EP2t3-N009X6Z8Aa4RQeYfkOI60kHaxFiX8cJp_PSnSq4l90L_os8-PWU6nrBrfwta91orx5ux05EyZdIUQ0IbiWo3htp61MK81yJEAE1zO8ftpWPqNM18ZFNlGp1yXP2mmJAZHbsOrfXWOkq8xk1DrWegLKE0OmXD5SsEfNhnGYi7GOEiJvvCQ33sCekPOGwJcHcNe-Gm07Q-TyAMaXYAKGLKdz9FX7Z1D8TZR6hr2C4kDfztj4_bpQjfYse6-SLFdjc-Y_85-tepnfgtR_sV_WqCIjBCTR2JxbpImdjSZEO9CdejdeVAysE__HGtklprN-t_QhmBj0UwrzgwW81l3F2pNoVjbI-6Mbmmrx6d0GMDGc6yEpXQB6VFcXQes0B5ExN5dq6g1q1HMY45MmC8yH0krz85qT6Nuc4Vh8FkdXVNH0r-5kUDwah4f-kiVtQlcdg
 
 @Restaurants.API_HostAddress = https://localhost:7227
 
@@ -103,7 +103,7 @@ POST {{Restaurants.API_HostAddress}}/api/identity/login
 Content-Type: application/json
 
 {
-  "email": "admin@example.com",
+  "email": "3ZlGd@example.com",
   "password": "Password1!"
 }
 
@@ -125,7 +125,7 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-   "userEmail": "3ZlGd@example.com",
+   "userEmail": "owner@example.com",
    "roleName": "User"
 }
 
