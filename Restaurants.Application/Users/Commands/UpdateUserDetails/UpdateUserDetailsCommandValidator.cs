@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace Restaurants.Application.Users.Commands;
+namespace Restaurants.Application.Users.Commands.UpdateUserDetails;
 
 public class UpdateUserDetailsCommandValidator : AbstractValidator<UpdateUserDetailsCommand>
 {

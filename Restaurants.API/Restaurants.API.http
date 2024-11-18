@@ -1,6 +1,6 @@
 ﻿@hostname = https://localhost
 @port = 7227
-@token = CfDJ8DfAeHPaQd1PvpvdU91NUDFz5FHXUk8Dsd8m5EReuoJlMifx_uwk9AGVnVdQAd0wBgsX1-JS2PwRfiKCIMT5qCkj4AIepItmwLpaS8-4bhXn2fs6T_iEmaqewlk-hNyQoXbNwd9BZGnMErwZzP_CznGrp7gE0CMTGFtL7-alDRkRFN_lcvNHZvlhIPwzfRCIBNyxinIjptF0qZctFRnSGvh7SjX1vhaJQzczlIWrR-xOu_hVWzfaSKoBzVNTENT_goi2kmKcCd2tLLf4ODie12Wt3qGWZnO1_Bfh0QCvHvgISonJ4_ZEjfDaGQLfkmm4SsfsJFPK1jAN8rW6t21o6SOfKKQa8AbdU6GhKxxXDSznNWqkKA6jZfTzA6IIUP3EVU6I3hXTP2fkvDEbOANgUlnoj-g57UeVFAQLuP4Pk7O7sHmngVcrpq4cTKzxOMlwaz1u50MLRR9sUUr-GGrApN5US76g32P_fvhowMOH7d1XfnRRe98-QC8r8GdFDfqC4irbfZWsXi7Kvc48R0uiTM3jdCav7hio5z_RfCDAw-BBlmIu8JuJFN1YosYSkqkKn1MyBOhJEV8-IF-3afmxhXh8T9g7v8t3oWPPItDOWhvSdv9pViPyUGQ3iFC_jG0qDuqw8VT6mUFDsJe7ob_BDu6MFMW3W5LwsGyl-FjkvkWDK12S_wKn932UrPG23OjQICS8MEseIxqkbtoVpKKAEBt-U4P5Tzi9mN2ETh1ksyf_kSz52gLE4wEY9RFfa0JBIfuRJhBcu41-N6fZ_F2YrQ71BRuPuFbBazIN9IOBaOaY
+@token = CfDJ8DfAeHPaQd1PvpvdU91NUDH_KQwSkJwOk4n-ZNhEdrLZiIJyyPMjhD17c7fmZw3kTYUS3b46txKoKX3DgnDY477SfgZCp06uIOgwoInszS6a7FsXBVF86gVgUBrNtPUZq465DfZPmbQv3Y9LIfY6Ehx6v5RxtN_V_lGXyWeSU7BfXHnGxZtFqlRtdi5GQ7JSmXPu6n5Ro5yvmQtmWOX6NYPVuEc3Jj8_WxuXuqvykUDzWRPj-LTINLwCcUbsAZavNuZgEqSRxiCpKAuW2uQPIymfemeG2Tpiy2CCIttYPgtMu66X0WySQolt993p62Ldca8sa8s4eiK9x5JT7lWhyeXA1QI_hSn-pSbXFGnuGGHIau22ke_TRuKoRR5_A7r7j2noOC-2mTEZbIO3zf2F7m-gmae1OzePFdV0CNEb-PaqDoUs6xHcEAHmGUU4WPJgLKeC7HAK2WRvPzb8Oa_8Lc2ugvVr8-Rz22tujpMPTuu8AXYcK9Zao6OffFhR6JkZgS-4OWjN62IOAW2hzgBSlsz_wf2XQ33YtRf7deQj08ynVsWweG4FuiPZlXuE5uAF_P7IFT1kSHHLPW9AT-QNe3XRafJREAOrNKItbrKTUH8-EU-NEWxRUiNz7nG8MzSggyyDk-slkJD9CBOmWjNNUcwoAwm7HZy0A0KK9ZMQqIPPB6fbJ0obQKX3mRgNu4k3rDO3BiEkQYWBB9jbCr-2jV6NcG4pJSLAjrsveIJTGZt6C_KRSAwgdcZDWvvW_vAFsDfl-oD0U1yIsbRJBm3h3QnHgbZvnGxsqx9f7M9RabM9
 
 @Restaurants.API_HostAddress = https://localhost:7227
 
@@ -103,7 +103,7 @@ POST {{Restaurants.API_HostAddress}}/api/identity/login
 Content-Type: application/json
 
 {
-  "email": "owner@example.com",
+  "email": "admin@example.com",
   "password": "Password1!"
 }
 
@@ -119,3 +119,14 @@ Content-Type: application/json
   "nationality": "Egyptian"
 }
 
+### Assign User Role
+PATCH {{Restaurants.API_HostAddress}}/api/identity/userRole
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+   "userEmail": "3ZlGd@example.com",
+   "roleName": "User"
+}
+
+###
