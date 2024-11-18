@@ -1,6 +1,6 @@
 ﻿@hostname = https://localhost
 @port = 7227
-@token = CfDJ8DfAeHPaQd1PvpvdU91NUDGXbvLRIsS8IOlR5GNNjNV0dok6T3OKdFLjYx7z6h0d2zlDvWawTRFRsJiuWfcX2HvbVkqRg75FztFCBD5ZtwEH2-Ep7xJqlM-dOqIvBNcwoZMFn0V8pTclaYjLyHr9IIuyw2U26HfTmdHuAnisuJk3aitoEJdiQFErWnuc7jSWKswZ56J3_xl5aqba6LfIuL0hD-YEyUkBc_7dHb1mX4Gv9PBahX5CumtL17agQa8M957Td14O3v5xY--Mx4wNSfo8qVgNVeC6i0foxYYKp7QNtuWJ8S7Bv7tQP0OXUEtpCEARIbhMLedWXqMJSWcqgHDULNyzSeyerIItVrlPajuPVmgcvR0Mm9YYqyXbG6t_EvPH1DKTOm9_yzebyEAQtf-9XSJz5Z0Do6ionSNX_wb9gUn1JEJTiyvB4V7dgnpSn3b_juQ9TjAnxJWxfcRMuG5A7Zvjh4pXtIxvU6J3oSpaXr7EBuN4rjT99kcGhRMUAAiNKBLxpZj0UaLniO3u5prW-IivQ0sYwcKI__eeyPeTZtGkdq1lV6x5w28jdTyBxVWT2LIe1-n8_31iQpyrIvwjsZrSV_e6rKRCoQzLLCF38oxuOAyjfmykEUhOxLRC15Hryw5QbQzSbSJVTpANGMP7ApOX3is42UWgrrjOsot1z-JZNFlcQI7n41p1Fz_mUcDcBoJyAN5Eb-vuQ7s8eArykRx3HuaW1KXtrNSkw92lFxYL2e5NTfL6kIHryK3A9BkxpxTE4dzyV7FId6_BRNhdm3AMXjXTMjNSm9SbglYE7fK0qtOUPGErwsWl9l64KG5sP3RLnZWXAvX-mWFRSHxNsWSVK4r7WrpKCIlh1dnIsxlB4Y7GYbyD6gZR6tTqug
+@token = CfDJ8DfAeHPaQd1PvpvdU91NUDEKPLtyE25IugEWYnk9UuYhpKbq-c9v6bmjALv-25sUOLZKtfsI3u89n7Vc8vvol3CO7IARLyrKZdTJOinlXtFR_abSbLOFOu5yvQYYNwVo97VXq3S5hzk2gSICesyIaJFauCM0o35Ndv86VXGtUtAUM29_WbpLpN8sX4XlMYUOb6Q67KK1hIh_Uv_KEh4c1MFIR9DNAk_sMX9rkOquhzN3BpCtjM1irU9SQBJ1NHLtp169uZIisJbc7O42NDNka3GMxSCcS_rBFpPD7pwAeu5BDQWwUkis5s0XOZ7NG_Tb1uaJNga4ZtfuJH7FeTx-VqTUzJR1y-ERn47-VBZpDhIrqNB3byfFXyGL1uNX1UHRFaAwzw6uIZdJJfraXChBR1_nLW6b8BsttZud9NT9J6RZrZp4DmA1KeBjfgcwlW3lLUAPX73xPXZ5KL2muQycZUgGQM5DkVw_Fht_T6lzH08N8MvC5DTgaQf41PPFhkbihvOZMyugNBlL7C6kCxnxCnZiiGaQFjc7pumWLrLfMIB3tty8cVWmkrtzZpcu6vxWMquBjdVd1ZwguOb5UG__YL-jn6WJunBLOOHSLwO7zqiBJaMNLfOXBb9XuaVdmjER51jj3gHR4o50bD5NbUsM8SI8rNP2W_q3fOcoslJsco9iLfO2MlTFcN7tgUZmu9S71JJcN3uEvSg6VYe8e8_nq8bRwNmPdi6tnmUbbxH3zPLjcHhndBrOLDHf8kS4pMfWTfma-18i7Hb-aL6q9cyu9zAh2Cgq_zEPeEI_PUT1Xvrl_pPsQAzeXpFAN1cLSAk4ZDoQHrgTyG7LmbhMtE4dDn0Ibvr7lj9xVXu5CJwQdw2aBdh6Be_5dRSuYitag0RSiQ
 
 @Restaurants.API_HostAddress = https://localhost:7227
 
@@ -21,15 +21,15 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "name": "Sushi Haven",
-  "description": "An elegant sushi bar with a wide variety of traditional and fusion rolls.",
-  "category": "Japanese",
+  "name": "Urban Tandoor",
+  "description": "A contemporary Indian restaurant blending traditional flavors with modern flair.",
+  "category": "Indian",
   "hasDelivery": true,
-  "contactEmail": "orders@sushihaven.com",
-  "contactNumber": "+15556543",
-  "city": "Los Angeles",
-  "street": "222 Sakura Blvd",
-  "postalCode": "90-012"
+  "contactEmail": "info@urbantandoor.com",
+  "contactNumber": "+15553210",
+  "city": "Chicago",
+  "street": "789 Spice Lane",
+  "postalCode": "60-601"
 }
 
 ### Delete Restaurant
