@@ -1,6 +1,4 @@
-﻿using MediatR;
-
-namespace Restaurants.Application.Restaurants.Queries.IsRestaurantNameExists;
+﻿namespace Restaurants.Application.Restaurants.Queries.IsRestaurantNameExists;
 
 public record IsRestaurantNameExistsQuery(string name) : IRequest<bool>
 {

@@ -1,8 +1,4 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Logging;
-using Restaurants.Domain.Entities;
-using Restaurants.Domain.Exceptions;
+﻿using Microsoft.AspNetCore.Identity;
 
 namespace Restaurants.Application.Users.Commands.AssignUserRole;
 

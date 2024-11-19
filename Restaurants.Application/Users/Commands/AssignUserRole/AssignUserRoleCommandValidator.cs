@@ -1,7 +1,4 @@
-﻿using FluentValidation;
-using Restaurants.Domain.Constants;
-
-namespace Restaurants.Application.Users.Commands.AssignUserRole;
+﻿namespace Restaurants.Application.Users.Commands.AssignUserRole;
 
 public class AssignUserRoleCommandValidator : AbstractValidator<AssignUserRoleCommand>
 {

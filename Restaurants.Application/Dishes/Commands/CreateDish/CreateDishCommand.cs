@@ -1,6 +1,4 @@
-﻿using MediatR;
-
-namespace Restaurants.Application.Dishes.Commands.CreateDish;
+﻿namespace Restaurants.Application.Dishes.Commands.CreateDish;
 
 public record CreateDishCommand : IRequest<int>
 {

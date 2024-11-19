@@ -1,6 +1,4 @@
-﻿using MediatR;
-
-namespace Restaurants.Application.Dishes.Commands.DeleteDish;
+﻿namespace Restaurants.Application.Dishes.Commands.DeleteDish;
 
 public record DeleteDishForRestaurantCommand(int restuarantId, int dishId) : IRequest
 {

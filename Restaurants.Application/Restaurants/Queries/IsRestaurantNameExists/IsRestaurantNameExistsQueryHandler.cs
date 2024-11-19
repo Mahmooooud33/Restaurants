@@ -1,8 +1,4 @@
-﻿using MediatR;
-using Microsoft.Extensions.Logging;
-using Restaurants.Domain.Repositories;
-
-namespace Restaurants.Application.Restaurants.Queries.IsRestaurantNameExists;
+﻿namespace Restaurants.Application.Restaurants.Queries.IsRestaurantNameExists;
 
 internal class IsRestaurantNameExistsQueryHandler(ILogger<IsRestaurantNameExistsQueryHandler> logger,
     IRestaurantsRepository restaurantsRepository) : IRequestHandler<IsRestaurantNameExistsQuery, bool>

@@ -1,11 +1,4 @@
-﻿using AutoMapper;
-using MediatR;
-using Microsoft.Extensions.Logging;
-using Restaurants.Domain.Entities;
-using Restaurants.Domain.Exceptions;
-using Restaurants.Domain.Repositories;
-
-namespace Restaurants.Application.Dishes.Commands.UpdateDish;
+﻿namespace Restaurants.Application.Dishes.Commands.UpdateDish;
 
 internal class UpdateDishCommandHandler(ILogger<UpdateDishCommand> logger,
     IRestaurantsRepository restaurantsRepository,

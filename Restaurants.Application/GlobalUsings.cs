@@ -1,0 +1,12 @@
+﻿global using AutoMapper;
+global using MediatR;
+global using Microsoft.Extensions.Logging;
+global using Restaurants.Domain.Constants;
+global using Restaurants.Domain.Entities;
+global using Restaurants.Domain.Exceptions;
+global using Restaurants.Domain.Interfaces;
+global using Restaurants.Domain.Repositories;
+global using Restaurants.Application.Dishes.Dtos;
+global using Restaurants.Application.Restaurants.Dtos;
+global using Restaurants.Application.Users;
+global using FluentValidation;

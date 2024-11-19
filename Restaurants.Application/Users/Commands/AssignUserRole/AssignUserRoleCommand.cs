@@ -1,6 +1,4 @@
-﻿using MediatR;
-
-namespace Restaurants.Application.Users.Commands.AssignUserRole;
+﻿namespace Restaurants.Application.Users.Commands.AssignUserRole;
 
 public record AssignUserRoleCommand : IRequest
 {

@@ -1,7 +1,4 @@
-﻿using MediatR;
-using Restaurants.Application.Dishes.Dtos;
-
-namespace Restaurants.Application.Dishes.Queries.GetDishByIdForRestaurant;
+﻿namespace Restaurants.Application.Dishes.Queries.GetDishByIdForRestaurant;
 
 public record GetDishByIdForRestaurantQuery(int restuarantId, int dishId) : IRequest<DishDto>
 {

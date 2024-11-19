@@ -1,10 +1,4 @@
-﻿using MediatR;
-using Microsoft.Extensions.Logging;
-using Restaurants.Domain.Entities;
-using Restaurants.Domain.Exceptions;
-using Restaurants.Domain.Repositories;
-
-namespace Restaurants.Application.Dishes.Commands.DeleteDish;
+﻿namespace Restaurants.Application.Dishes.Commands.DeleteDish;
 
 internal class DeleteDishForRestaurantCommandHandler(ILogger<DeleteDishForRestaurantCommand> logger,
     IRestaurantsRepository restaurantsRepository,

@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-
-namespace Restaurants.Application.Dishes.Commands.UpdateDish;
+﻿namespace Restaurants.Application.Dishes.Commands.UpdateDish;
 
 public class UpdateDishCommandValidators : AbstractValidator<UpdateDishCommand>
 {

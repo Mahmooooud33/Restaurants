@@ -1,12 +1,4 @@
-﻿using AutoMapper;
-using MediatR;
-using Microsoft.Extensions.Logging;
-using Restaurants.Application.Dishes.Dtos;
-using Restaurants.Domain.Entities;
-using Restaurants.Domain.Exceptions;
-using Restaurants.Domain.Repositories;
-
-namespace Restaurants.Application.Dishes.Queries.GetDishesForRestaurant;
+﻿namespace Restaurants.Application.Dishes.Queries.GetDishesForRestaurant;
 
 internal class GetDishesForRestaurantQueryHandler(ILogger<GetDishesForRestaurantQueryHandler> logger,
     IRestaurantsRepository restaurantsRepository,
