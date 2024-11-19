@@ -1,8 +1,8 @@
 ﻿@hostname = https://localhost
 @port = 7227
-@token = CfDJ8DfAeHPaQd1PvpvdU91NUDFrWI41cc2NXs5qs6KZTWJx8HneY3qfZkECiKsj1LRcqDXn0WQ6Xv4n7GHf9Hrt5AicjchHEacI-II40pMPhNe8vZxJNbJtxJDW5bqR21Ear9D3kU0obXhNIimbcgna2GBC0JOUu1DUhPJdiLR13ereRwzHkYjuJI6reOd6m34RTH7vfetly7a1g5mjWQG8CRvqak2xLlFDhXPSXtFv71ZUYZbXN0AePdIWr6xgHtFR1H0tBIGPNy3ZSAJQxn9h-mNiEaahi7WUYRRSs_VEsjhSv0Kz-Q9t-kd7z5rO1VWIDcSKKppPNkHQEIJwPSveknPZT8s7P7k11v1xe2LmjRbNssF1ztzkhEEPDrROhSz2N2nXmbfxZYsmMofox9ZLR__5uJ_VIm6W9dm9rh3hhqOHGsKl-PG-I2_2GlzqxYmy4HKwdjXISMHPUU7RfknC16_bV9mYyoJRD_KX1O2QoDcewovz3vZVPwW0pxQUP45rdIM_VnaPIbcIuA-ZSo-nHAY0IlcPOoqwC_VWsmSQ8upi5ag9GOemgtm3tS4Z7lOgmKeuzk0CnAseFYYAkvhXol8Lfte9kn1v6qSIeYn9L8Me5jwi8OX4iSuUUEV9A2fEtvquABASjE7H-MFgCr0_Kt8YNhHnZ2zZwgwS7OVSDcF1yKJVLx7QKElLGJavgSIU7TpMjiB_vKWPelXW8mtJ8A1zKMsnSG6K7pMQMhTpAXaqQ7TUEkNcaLVHOMWOvRBX7RmfnjEnlxhrOtLypWqpUAQANeejAC3UoJfLUUWK6ufyzMxuWPmyzAeDT7IYGizIXsvZfDlIccSy_xN8NqDp3rHBRI2oplLHkFv37QIVCLPUVVTg9AFfZqV6DHeBM-iT1Q
+@token = CfDJ8DfAeHPaQd1PvpvdU91NUDGHteTYEtfyzqhbIRDRKcYbP78ZRyownzNLlw0FZxXacNpeec9FUL9AoijtIsZ73gHFgXEMHonbUM6in0KvHo4RCmRR44neKqSlLYF-tP1IN8ZKYiKWg4iGeC2_2saKzNWa4TTdWjvDxxDMkXJSDFhOfqXAKL-jry4Rcbxr2PS6ITwvLIp1IDG4tSrw8Br3FofvZFtEl1O0BawWg-nwWwVUfBcqF8OPjTw8caVKD1yTVHBXGHl98HZrE_jH2XXr0TqhMa2rD-C5Vrp8Q-pFTH75UPDFNvM-CeYndbEGWWshJGZ6HyztPyXtLzqQ8iZNCa7MK52Jl0xXKu5-1aabdLgyt5SXvs7yTaG5Gap2GvD8aEyqbKqNP0Vf_c9ZSe1950BMoUEizzbrzEvbV5QATOt9HtW3iiZNkWY7Bn8rOFDZGDvb0Fp4xRWcMJr8YFKypy_ZjG9Fno8HK4hwESVVC9kG-HBgx6bbc2o3GyJN_j_CPP_yRtjNldkr5TDqPVhW6VuCHkQ8W4KlUxcTe4-N5YUWUbRtyLTCCydkzp8K8C9Az1M6YzzMui2XxB1Di3jwatTNGfS2Uevg2m_qvCyo-KxgV7AevazGNq5sB-dxMI0IvlSDc15s5JHidIwP89xVZ2aDiGt1bSgH6qbzosevCIC79xLG5wlKEy6PnxMm9bhyxYfkzrJhCJinYBI2XCHHnOm8D78aGnia0quwtb38Qs9gDq6W09LjeXfR4s49OydW4IEgexB3PF5fc3ZqhSsHsX0QZQKoZjnFa67LXgUW2aQ3
 
-@Restaurants.API_HostAddress = https://localhost:7227
+@Restaurants.API_HostAddress = {{hostname}}:{{port}}
 
 # ===================================
 # Region: Restaurants Endpoints
@@ -14,19 +14,20 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "name": "Urban Tandoor",
-  "description": "A contemporary Indian restaurant blending traditional flavors with modern flair.",
+  "name": "Bella Gelato",
+  "description": "An Italian gelato shop offering a variety of handcrafted frozen treats.",
   "category": "Indian",
-  "hasDelivery": true,
-  "contactEmail": "info@urbantandoor.com",
-  "contactNumber": "+15553210",
-  "city": "Chicago",
-  "street": "789 Spice Lane",
-  "postalCode": "60-601"
+  "hasDelivery": false,
+  "contactEmail": "hello@bellagelato.com",
+  "contactNumber": "+15553344",
+  "city": "San Diego",
+  "street": "444 Sweet Lane",
+  "postalCode": "92-101"
 }
 
 ### Get All Restaurants
 GET {{Restaurants.API_HostAddress}}/api/restaurants
+Authorization: Bearer {{token}}
 
 ### Get Single Restaurant
 GET {{Restaurants.API_HostAddress}}/api/restaurants/3
@@ -98,7 +99,7 @@ POST {{Restaurants.API_HostAddress}}/api/identity/register
 Content-Type: application/json
 
 {
-  "email": "3ZlGd@example.com",
+  "email": "owner2@example.com",
   "password": "Password1!"
 }
 
@@ -107,7 +108,7 @@ POST {{Restaurants.API_HostAddress}}/api/identity/login
 Content-Type: application/json
 
 {
-  "email": "owner@example.com",
+  "email": "owner2@example.com",
   "password": "Password1!"
 }
 
@@ -129,8 +130,8 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-   "userEmail": "owner@example.com",
-   "roleName": "User"
+   "userEmail": "owner2@example.com",
+   "roleName": "Owner"
 }
 
 ### Unassign User Role
@@ -139,8 +140,8 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-   "userEmail": "3ZlGd@example.com",
-   "roleName": "User"
+   "userEmail": "owner2@example.com",
+   "roleName": "Owner"
 }
 
 ###

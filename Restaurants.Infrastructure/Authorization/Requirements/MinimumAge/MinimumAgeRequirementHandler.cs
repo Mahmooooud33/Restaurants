@@ -2,16 +2,16 @@
 using Microsoft.Extensions.Logging;
 using Restaurants.Application.Users;
 
-namespace Restaurants.Infrastructure.Authorization.Requirements;
+namespace Restaurants.Infrastructure.Authorization.Requirements.MinimumAge;
 
 internal class MinimumAgeRequirementHandler(ILogger<MinimumAgeRequirementHandler> logger,
     IUserContext userContext) : AuthorizationHandler<MinimumAgeRequirement>
 {
-    protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, 
+    protected override Task HandleRequirementAsync(AuthorizationHandlerContext context,
         MinimumAgeRequirement requirement)
     {
         var currentUser = userContext.GetCurrentUser();
-      
+
         logger.LogInformation("User: {Email}, date of birth: {DoB} = Handling MinimumAgeRequirement",
             currentUser!.Email,
             currentUser.DateOfBirth);
@@ -23,7 +23,7 @@ internal class MinimumAgeRequirementHandler(ILogger<MinimumAgeRequirementHandler
             return Task.CompletedTask;
         }
 
-        if(currentUser.DateOfBirth.Value.AddYears(requirement.MinimumAge) <= DateOnly.FromDateTime(DateTime.Today))
+        if (currentUser.DateOfBirth.Value.AddYears(requirement.MinimumAge) <= DateOnly.FromDateTime(DateTime.Today))
         {
             logger.LogInformation("Athurization Succeeded");
             context.Succeed(requirement);
