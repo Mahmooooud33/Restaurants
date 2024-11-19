@@ -1,19 +1,12 @@
 ﻿@hostname = https://localhost
 @port = 7227
-@token = CfDJ8DfAeHPaQd1PvpvdU91NUDEKPLtyE25IugEWYnk9UuYhpKbq-c9v6bmjALv-25sUOLZKtfsI3u89n7Vc8vvol3CO7IARLyrKZdTJOinlXtFR_abSbLOFOu5yvQYYNwVo97VXq3S5hzk2gSICesyIaJFauCM0o35Ndv86VXGtUtAUM29_WbpLpN8sX4XlMYUOb6Q67KK1hIh_Uv_KEh4c1MFIR9DNAk_sMX9rkOquhzN3BpCtjM1irU9SQBJ1NHLtp169uZIisJbc7O42NDNka3GMxSCcS_rBFpPD7pwAeu5BDQWwUkis5s0XOZ7NG_Tb1uaJNga4ZtfuJH7FeTx-VqTUzJR1y-ERn47-VBZpDhIrqNB3byfFXyGL1uNX1UHRFaAwzw6uIZdJJfraXChBR1_nLW6b8BsttZud9NT9J6RZrZp4DmA1KeBjfgcwlW3lLUAPX73xPXZ5KL2muQycZUgGQM5DkVw_Fht_T6lzH08N8MvC5DTgaQf41PPFhkbihvOZMyugNBlL7C6kCxnxCnZiiGaQFjc7pumWLrLfMIB3tty8cVWmkrtzZpcu6vxWMquBjdVd1ZwguOb5UG__YL-jn6WJunBLOOHSLwO7zqiBJaMNLfOXBb9XuaVdmjER51jj3gHR4o50bD5NbUsM8SI8rNP2W_q3fOcoslJsco9iLfO2MlTFcN7tgUZmu9S71JJcN3uEvSg6VYe8e8_nq8bRwNmPdi6tnmUbbxH3zPLjcHhndBrOLDHf8kS4pMfWTfma-18i7Hb-aL6q9cyu9zAh2Cgq_zEPeEI_PUT1Xvrl_pPsQAzeXpFAN1cLSAk4ZDoQHrgTyG7LmbhMtE4dDn0Ibvr7lj9xVXu5CJwQdw2aBdh6Be_5dRSuYitag0RSiQ
+@token = CfDJ8DfAeHPaQd1PvpvdU91NUDFrWI41cc2NXs5qs6KZTWJx8HneY3qfZkECiKsj1LRcqDXn0WQ6Xv4n7GHf9Hrt5AicjchHEacI-II40pMPhNe8vZxJNbJtxJDW5bqR21Ear9D3kU0obXhNIimbcgna2GBC0JOUu1DUhPJdiLR13ereRwzHkYjuJI6reOd6m34RTH7vfetly7a1g5mjWQG8CRvqak2xLlFDhXPSXtFv71ZUYZbXN0AePdIWr6xgHtFR1H0tBIGPNy3ZSAJQxn9h-mNiEaahi7WUYRRSs_VEsjhSv0Kz-Q9t-kd7z5rO1VWIDcSKKppPNkHQEIJwPSveknPZT8s7P7k11v1xe2LmjRbNssF1ztzkhEEPDrROhSz2N2nXmbfxZYsmMofox9ZLR__5uJ_VIm6W9dm9rh3hhqOHGsKl-PG-I2_2GlzqxYmy4HKwdjXISMHPUU7RfknC16_bV9mYyoJRD_KX1O2QoDcewovz3vZVPwW0pxQUP45rdIM_VnaPIbcIuA-ZSo-nHAY0IlcPOoqwC_VWsmSQ8upi5ag9GOemgtm3tS4Z7lOgmKeuzk0CnAseFYYAkvhXol8Lfte9kn1v6qSIeYn9L8Me5jwi8OX4iSuUUEV9A2fEtvquABASjE7H-MFgCr0_Kt8YNhHnZ2zZwgwS7OVSDcF1yKJVLx7QKElLGJavgSIU7TpMjiB_vKWPelXW8mtJ8A1zKMsnSG6K7pMQMhTpAXaqQ7TUEkNcaLVHOMWOvRBX7RmfnjEnlxhrOtLypWqpUAQANeejAC3UoJfLUUWK6ufyzMxuWPmyzAeDT7IYGizIXsvZfDlIccSy_xN8NqDp3rHBRI2oplLHkFv37QIVCLPUVVTg9AFfZqV6DHeBM-iT1Q
 
 @Restaurants.API_HostAddress = https://localhost:7227
 
 # ===================================
-# Region: Dishes Endpoints
+# Region: Restaurants Endpoints
 # ===================================
-
-### Get All Restaurants
-GET {{Restaurants.API_HostAddress}}/api/restaurants
-
-### Get Single Restaurant
-GET {{Restaurants.API_HostAddress}}/api/restaurants/3
-Authorization: Bearer {{token}}
 
 ### Create New Restaurant
 POST {{Restaurants.API_HostAddress}}/api/restaurants
@@ -32,18 +25,28 @@ Content-Type: application/json
   "postalCode": "60-601"
 }
 
-### Delete Restaurant
-DELETE {{Restaurants.API_HostAddress}}/api/restaurants/8
+### Get All Restaurants
+GET {{Restaurants.API_HostAddress}}/api/restaurants
+
+### Get Single Restaurant
+GET {{Restaurants.API_HostAddress}}/api/restaurants/3
+Authorization: Bearer {{token}}
 
 ### Update Restaurant
-PATCH {{Restaurants.API_HostAddress}}/api/restaurants/11
+PATCH {{Restaurants.API_HostAddress}}/api/restaurants/5
+Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "name": "Morning Bliss Cafe",
-  "description": "A charming cafe serving artisanal coffee and breakfast all day.",
-  "hasDelivery": false
+  "name": "Green Garden Cafe Updated",
+  "description": "A cozy cafe focused on organic and plant-based meals.",
+  "hasDelivery": true
 }
+
+### Delete Restaurant
+DELETE {{Restaurants.API_HostAddress}}/api/restaurants/5
+Authorization: Bearer {{token}}
+
 
 ###
 # ===================================
@@ -71,9 +74,6 @@ GET {{Restaurants.API_HostAddress}}/api/restaurant/2/dishes/4
 ### Delete Single Dish for a Restaurant
 DELETE {{Restaurants.API_HostAddress}}/api/restaurant/2/dishes/3
 
-### Delete All Dishes for a Restaurant
-DELETE {{Restaurants.API_HostAddress}}/api/restaurant/2/dishes
-
 ### Update Dish for a Restaurant
 PATCH {{Restaurants.API_HostAddress}}/api/restaurant/2/dishes/3
 Content-Type: application/json
@@ -84,6 +84,9 @@ Content-Type: application/json
   "price": 15.99,
   "kiloCalories": 820
 }
+
+### Delete All Dishes for a Restaurant
+DELETE {{Restaurants.API_HostAddress}}/api/restaurant/2/dishes
 
 ###
 # ===================================

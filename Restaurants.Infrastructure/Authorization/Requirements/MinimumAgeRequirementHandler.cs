@@ -13,7 +13,7 @@ internal class MinimumAgeRequirementHandler(ILogger<MinimumAgeRequirementHandler
         var currentUser = userContext.GetCurrentUser();
       
         logger.LogInformation("User: {Email}, date of birth: {DoB} = Handling MinimumAgeRequirement",
-            currentUser.Email,
+            currentUser!.Email,
             currentUser.DateOfBirth);
 
         if (currentUser.DateOfBirth == null)

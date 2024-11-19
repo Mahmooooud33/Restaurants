@@ -17,7 +17,7 @@ public class CreateRestaurantCommandHandler(ILogger<CreateRestaurantCommandHandl
         var currentUser = userContext.GetCurrentUser();
 
         logger.LogInformation("{UserEmail} [{UserId}] is creating a new restaurant {@Restaurant}",
-            currentUser.Email,
+            currentUser!.Email,
             currentUser.Id,
             request);
 

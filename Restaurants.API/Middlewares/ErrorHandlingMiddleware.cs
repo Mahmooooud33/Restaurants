@@ -17,6 +17,11 @@ public class ErrorHandlingMiddleware(ILogger<ErrorHandlingMiddleware> logger) : 
 
             logger.LogWarning(notFoundException.Message);
         }
+        catch (ForbiddenException)
+        {
+            context.Response.StatusCode = 403;
+            await context.Response.WriteAsync("Access Denied");
+        }
         catch(Exception ex)
         {
             logger.LogError(ex, ex.Message);
