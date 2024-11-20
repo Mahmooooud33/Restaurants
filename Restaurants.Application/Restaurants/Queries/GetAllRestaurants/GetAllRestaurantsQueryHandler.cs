@@ -2,17 +2,19 @@
 
 public class GetAllRestaurantsQueryHandler(ILogger<GetAllRestaurantsQueryHandler> logger,
     IMapper mapper,
-    IRestaurantsRepository restaurantsRepository) : IRequestHandler<GetAllRestaurantsQuery, IEnumerable<RestaurantDto>>
+    IRestaurantsRepository restaurantsRepository) : IRequestHandler<GetAllRestaurantsQuery, PagedResult<RestaurantDto>>
 {
-    public async Task<IEnumerable<RestaurantDto>> Handle(GetAllRestaurantsQuery request, CancellationToken cancellationToken)
+    public async Task<PagedResult<RestaurantDto>> Handle(GetAllRestaurantsQuery request, CancellationToken cancellationToken)
     {
+        logger.LogInformation("Getting {Count} restaurants", request.PageSize);
 
-        logger.LogInformation("Getting all restaurants");
-
-        var restaurants = await restaurantsRepository.GetAllMatchingAsync(request.SearchPhrase);
+        var (restaurants, totalCount) = await restaurantsRepository.GetAllMatchingAsync(request.SearchPhrase, 
+            request.PageSize, 
+            request.PageNumber);
 
         var restaurantDtos = mapper.Map<IEnumerable<RestaurantDto>>(restaurants);
 
-        return restaurantDtos;
+        var result = new PagedResult<RestaurantDto>(restaurantDtos, totalCount, request.PageSize, request.PageNumber);
+        return result;
     }
 }

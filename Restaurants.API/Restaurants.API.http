@@ -26,7 +26,7 @@ Content-Type: application/json
 }
 
 ### Get All Restaurants
-GET {{Restaurants.API_HostAddress}}/api/restaurants?searchPhrase=Gourmet
+GET {{Restaurants.API_HostAddress}}/api/restaurants?searchPhrase=&pageSize=10&pageNumber=1
 Authorization: Bearer {{token}}
 
 ### Get Single Restaurant

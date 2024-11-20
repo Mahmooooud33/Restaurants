@@ -10,3 +10,4 @@ global using Restaurants.Application.Dishes.Dtos;
 global using Restaurants.Application.Restaurants.Dtos;
 global using Restaurants.Application.Users;
 global using FluentValidation;
+global using Restaurants.Application.Common;

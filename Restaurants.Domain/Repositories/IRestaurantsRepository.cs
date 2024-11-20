@@ -10,5 +10,5 @@ public interface IRestaurantsRepository
     Task<bool> IsRestaurantNameExistsAsync(string name);
     Task Delete(Restaurant entity);
     Task Update();
-    Task<IEnumerable<Restaurant>> GetAllMatchingAsync(string? searchPhrase);
+    Task<(IEnumerable<Restaurant>, int)> GetAllMatchingAsync(string? searchPhrase, int pageSize, int pageNumber);
 }
