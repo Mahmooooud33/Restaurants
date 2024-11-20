@@ -1,6 +1,4 @@
-﻿using Restaurants.Application.Restaurants.Dtos;
-
-namespace Restaurants.Application.Restaurants.Queries.GetAllRestaurants;
+﻿namespace Restaurants.Application.Restaurants.Queries.GetAllRestaurants;
 
 public class GetAllRestaurantsQueryHandler(ILogger<GetAllRestaurantsQueryHandler> logger,
     IMapper mapper,

@@ -22,7 +22,12 @@ public class ErrorHandlingMiddleware(ILogger<ErrorHandlingMiddleware> logger) : 
             context.Response.StatusCode = 403;
             await context.Response.WriteAsync("Access Denied");
         }
-        catch(Exception ex)
+        catch (UnauthorizedAccessException)
+        {
+            context.Response.StatusCode = 401;
+            await context.Response.WriteAsync("Unauthorized");
+        }
+        catch (Exception ex)
         {
             logger.LogError(ex, ex.Message);
             
