@@ -45,7 +45,7 @@ public class DishesController(IMediator mediator) : ControllerBase
     public async Task<IActionResult> UpdateDishForRestaurant([FromRoute] int restaurantId, [FromRoute] int dishId, UpdateDishCommand command)
     {
         command.RestaurantId = restaurantId;
-        command.DishId = dishId;
+        command.Id = dishId;
 
         await mediator.Send(command);
         return NoContent();

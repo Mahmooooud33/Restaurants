@@ -7,14 +7,14 @@ internal class UpdateDishCommandHandler(ILogger<UpdateDishCommand> logger,
     public async Task Handle(UpdateDishCommand request, CancellationToken cancellationToken)
     {
         logger.LogInformation("Updating Dish with ID: {DishId} for Restaurant with ID: {RestaurantId}",
-            request.DishId,
+            request.Id,
             request.RestaurantId);
 
         var restaurant = await restaurantsRepository.GetByIdAsync(request.RestaurantId)
             ?? throw new NotFoundException(nameof(Restaurant), request.RestaurantId.ToString());
 
-        var dish = restaurant.Dishes.FirstOrDefault(d => d.Id == request.DishId)
-            ?? throw new NotFoundException(nameof(Dish), request.DishId.ToString());
+        var dish = restaurant.Dishes.FirstOrDefault(d => d.Id == request.Id)
+            ?? throw new NotFoundException(nameof(Dish), request.Id.ToString());
 
         mapper.Map(request, dish);
 
