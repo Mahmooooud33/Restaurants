@@ -11,14 +11,13 @@ public class CurrentUserTests
     [Theory()]
     [InlineData(UserRoles.Admin)]
     [InlineData(UserRoles.User)]
-    [InlineData("")]
     public void IsInRole_WithMatchingRole_ReturnsTrue(string roleName)
     {
         //arrange
         var currentUser = new CurrentUser("1", "test@test.com", [UserRoles.Admin, UserRoles.User], null, null);
 
         //act
-        var isInRole = currentUser.IsInRole(UserRoles.Admin);
+        var isInRole = currentUser.IsInRole(roleName);
 
         //assert
         isInRole.Should().BeTrue();

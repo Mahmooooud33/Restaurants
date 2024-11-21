@@ -47,7 +47,7 @@ public class UserContextTests
 
         //Assert
         currentUser.Should().NotBeNull();
-        currentUser.Id.Should().Be("1");
+        currentUser!.Id.Should().Be("1");
         currentUser.Email.Should().Be("test@test.com");
         currentUser.Roles.Should().ContainInOrder(UserRoles.Admin, UserRoles.User);
         currentUser.Nationality.Should().Be("German");
@@ -76,7 +76,7 @@ public class UserContextTests
     public void GetCurrentUser_WithUserContextNotPresent_ThrowsInvalidOperationException()
     {
         //Arrange
-        _httpContextAccessorMock.Setup(x => x.HttpContext).Returns((HttpContext)null);
+        _httpContextAccessorMock.Setup(x => x.HttpContext).Returns((HttpContext)null!);
 
         var userContext = new UserContext(_httpContextAccessorMock.Object);
 
@@ -109,7 +109,7 @@ public class UserContextTests
 
         //Assert
         currentUser.Should().NotBeNull();
-        currentUser.Id.Should().Be("1");
+        currentUser!.Id.Should().Be("1");
         currentUser.Email.Should().Be("test@example.com");
         currentUser.Roles.Should().Contain(UserRoles.Admin);
         currentUser.Nationality.Should().BeNull();
