@@ -1,8 +1,9 @@
-﻿using Azure.Core;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Restaurants.Domain.Constants;
 using Restaurants.Domain.Entities;
 using Restaurants.Domain.Repositories;
 using Restaurants.Infrastructure.Data;
+using System.Linq.Expressions;
 
 namespace Restaurants.Infrastructure.Repositories;
 
@@ -30,7 +31,11 @@ internal class RestaurantsRepository(RestaurantsDbContext dbContext)
         return resturants;
     }
 
-    public async Task<(IEnumerable<Restaurant>, int)> GetAllMatchingAsync(string? searchPhrase, int pageSize, int pageNumber)
+    public async Task<(IEnumerable<Restaurant>, int)> GetAllMatchingAsync(string? searchPhrase, 
+        int pageSize, 
+        int pageNumber,
+        string? sortBy,
+        SortDirection sortDirection)
     {
         var searchPharseLower = searchPhrase?.ToLower().Trim();
 
@@ -40,6 +45,20 @@ internal class RestaurantsRepository(RestaurantsDbContext dbContext)
                                                   || r.Description.ToLower().Contains(searchPharseLower));
 
         var totalCount = await baseQuery.CountAsync();
+
+        if(sortBy != null)
+        {
+            var columnSelector = new Dictionary<string, Expression<Func<Restaurant, object>>>
+            {
+                { nameof(Restaurant.Name), r => r.Name },
+                { nameof(Restaurant.Category), r => r.Category },
+            };
+
+            var selectedColumn = columnSelector[sortBy];
+
+            baseQuery = sortDirection == SortDirection.Ascending ? baseQuery.OrderBy(selectedColumn) 
+                                                                 : baseQuery.OrderByDescending(selectedColumn);
+        }
 
         var resturants = await baseQuery
             .Skip(pageSize * (pageNumber - 1))
