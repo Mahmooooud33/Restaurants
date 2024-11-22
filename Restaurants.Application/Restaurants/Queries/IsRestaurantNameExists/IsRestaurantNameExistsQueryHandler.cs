@@ -1,6 +1,6 @@
 ﻿namespace Restaurants.Application.Restaurants.Queries.IsRestaurantNameExists;
 
-internal class IsRestaurantNameExistsQueryHandler(ILogger<IsRestaurantNameExistsQueryHandler> logger,
+public class IsRestaurantNameExistsQueryHandler(ILogger<IsRestaurantNameExistsQueryHandler> logger,
     IRestaurantsRepository restaurantsRepository) : IRequestHandler<IsRestaurantNameExistsQuery, bool>
 {
     public async Task<bool> Handle(IsRestaurantNameExistsQuery request, CancellationToken cancellationToken)

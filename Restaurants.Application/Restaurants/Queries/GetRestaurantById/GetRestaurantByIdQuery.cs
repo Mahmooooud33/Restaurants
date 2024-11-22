@@ -1,6 +1,6 @@
 ﻿namespace Restaurants.Application.Restaurants.Queries.GetRestaurantById;
 
-public record GetRestaurantByIdQuery(int id) : IRequest<RestaurantDto>
+public record GetRestaurantByIdQuery(int Id) : IRequest<RestaurantDto>
 {
-    public int Id { get; set; } = id;
+    public int Id { get; set; } = Id;
 }
