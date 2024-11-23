@@ -10,29 +10,31 @@ internal class OwnerMaximumRestaurantsRequirementHandler(ILogger<OwnerMaximumRes
     IRestaurantsRepository restaurantsRepository,
     IUserContext userContext) : AuthorizationHandler<OwnerMaximumRestaurantsRequirement>
 {
-    protected override async Task HandleRequirementAsync(AuthorizationHandlerContext context, OwnerMaximumRestaurantsRequirement requirement)
+    protected override async Task HandleRequirementAsync(AuthorizationHandlerContext context,
+        OwnerMaximumRestaurantsRequirement requirement)
     {
         var currentUser = userContext.GetCurrentUser();
 
         var resturants = await restaurantsRepository.GetAllAsync();
 
-        if(currentUser is null || !currentUser.IsInRole(UserRoles.Owner))
+        if (currentUser is null || !currentUser.IsInRole(UserRoles.Owner))
         {
             context.Fail();
+            return;
         }
-        else
+
+        var userRestaurantsCreated = resturants.Count(x => x.OwnerId == currentUser.Id);
+
+        logger.LogInformation("User: {Email}, Restaurants Created: {Restaurants} = Handling OwnerMaximumRestaurantsRequirement",
+        currentUser!.Email,
+        userRestaurantsCreated);
+
+        if (userRestaurantsCreated >= requirement.MinimumRestaurantsCreated)
         {
-            var userRestaurantsCreated = resturants.Count(x => x.OwnerId == currentUser.Id);
-
-            logger.LogInformation("User: {Email}, Restaurants Created: {Restaurants} = Handling OwnerMaximumRestaurantsRequirement",
-            currentUser!.Email,
-            userRestaurantsCreated);
-
-            if (userRestaurantsCreated >= requirement.MinimumRestaurantsCreated)
-                context.Succeed(requirement);
-            
-            else
-                context.Fail();
+            context.Succeed(requirement);
+            return;
         }
+
+        context.Fail();
     }
 }
