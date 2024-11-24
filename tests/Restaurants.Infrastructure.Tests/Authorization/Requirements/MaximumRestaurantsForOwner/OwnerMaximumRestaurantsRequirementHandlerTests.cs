@@ -35,7 +35,7 @@ public class OwnerMaximumRestaurantsRequirementHandlerTests
         // Arrange
         var requirement = new OwnerMaximumRestaurantsRequirement(2);
 
-        var context = new AuthorizationHandlerContext([requirement], null, null);
+        var context = new AuthorizationHandlerContext([requirement], null!, null);
 
         _userContextMock.Setup(x => x.GetCurrentUser()).Returns((CurrentUser?)null);
 
@@ -52,7 +52,7 @@ public class OwnerMaximumRestaurantsRequirementHandlerTests
         // Arrange
         var requirement = new OwnerMaximumRestaurantsRequirement(2);
 
-        var context = new AuthorizationHandlerContext([requirement], null, null);
+        var context = new AuthorizationHandlerContext([requirement], null!, null);
 
         var currentUser = new CurrentUser("1", "test@test.com", [], null, null);
 
@@ -95,7 +95,7 @@ public class OwnerMaximumRestaurantsRequirementHandlerTests
 
         var requirement = new OwnerMaximumRestaurantsRequirement(2);
 
-        var context = new AuthorizationHandlerContext([requirement], null, null);
+        var context = new AuthorizationHandlerContext([requirement], null!, null);
 
         // Act
         await _handler.HandleAsync(context);
@@ -128,7 +128,7 @@ public class OwnerMaximumRestaurantsRequirementHandlerTests
 
         var requirement = new OwnerMaximumRestaurantsRequirement(2);
 
-        var context = new AuthorizationHandlerContext([requirement], null, null);
+        var context = new AuthorizationHandlerContext([requirement], null!, null);
 
         // Act
         await _handler.HandleAsync(context);
