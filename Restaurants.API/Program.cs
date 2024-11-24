@@ -49,3 +49,6 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+// To define the program class as a public one to use it inside of Controller test for the Web Application Factory feature.
+public partial class Program { }
