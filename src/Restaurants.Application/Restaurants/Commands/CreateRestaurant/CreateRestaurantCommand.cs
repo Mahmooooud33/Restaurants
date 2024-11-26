@@ -1,4 +1,6 @@
-﻿namespace Restaurants.Application.Restaurants.Commands.CreateRestaurant;
+﻿using Microsoft.AspNetCore.Http;
+
+namespace Restaurants.Application.Restaurants.Commands.CreateRestaurant;
 
 public record CreateRestaurantCommand : IRequest<int>
 {
@@ -13,4 +15,6 @@ public record CreateRestaurantCommand : IRequest<int>
     public string? City { get; set; }
     public string? Street { get; set; }
     public string? PostalCode { get; set; }
+
+    public IFormFile? RestaurantLogo { get; set; }
 }

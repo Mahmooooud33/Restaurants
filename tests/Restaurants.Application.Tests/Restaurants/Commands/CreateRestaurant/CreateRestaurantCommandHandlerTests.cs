@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using Restaurants.Application.Users;
 using Restaurants.Domain.Repositories;
 using Restaurants.Application.Restaurants.Commands.CreateRestaurant;
+using Restaurants.Domain.Interfaces;
 
 namespace Restaurants.Application.Tests.Restaurants.Commands.CreateRestaurant;
 
@@ -18,6 +19,7 @@ public class CreateRestaurantCommandHandlerTests
         //Arrange
         var loggerMock = new Mock<ILogger<CreateRestaurantCommandHandler>>();
         var mapperMock = new Mock<IMapper>();
+        var fileServiceMock = new Mock<IFileService>();
 
         var command = new CreateRestaurantCommand();
         var restaurant = new Restaurant();
@@ -33,7 +35,8 @@ public class CreateRestaurantCommandHandlerTests
         var commandHandler = new CreateRestaurantCommandHandler(loggerMock.Object,
             mapperMock.Object,
             restaurantRepositoryMock.Object,
-            userContextMock.Object);
+            userContextMock.Object,
+            fileServiceMock.Object);
 
         //Act
         var result = await commandHandler.Handle(command, CancellationToken.None);

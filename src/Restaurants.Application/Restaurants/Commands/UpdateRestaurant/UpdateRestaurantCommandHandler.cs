@@ -3,6 +3,7 @@
 public class UpdateRestaurantCommandHandler(ILogger<UpdateRestaurantCommandHandler> logger,
     IRestaurantsRepository restaurantsRepository, 
     IMapper mapper,
+    IFileService fileService,
     IRestaurantAuthorizationService restaurantAuthorizationService) : IRequestHandler<UpdateRestaurantCommand>
 {
     public async Task Handle(UpdateRestaurantCommand request, CancellationToken cancellationToken)
@@ -16,6 +17,8 @@ public class UpdateRestaurantCommandHandler(ILogger<UpdateRestaurantCommandHandl
             throw new ForbiddenException();
 
         mapper.Map(request, restaurant);
+
+        restaurant.LogoUrl = await fileService.UploadFileAsync(request.RestaurantLogo);
 
         await restaurantsRepository.Update();
     }

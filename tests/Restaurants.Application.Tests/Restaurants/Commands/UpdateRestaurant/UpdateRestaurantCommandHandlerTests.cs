@@ -18,6 +18,8 @@ public class UpdateRestaurantCommandHandlerTests
     private readonly Mock<IMapper> _mapperMock;
     private readonly Mock<IRestaurantAuthorizationService> _restaurantAuthorizationServiceMock;
     private readonly Mock<IRestaurantsRepository> _restaurantsRepositoryMock;
+    private readonly Mock<IFileService> _fileServiceMock;
+
 
     private readonly UpdateRestaurantCommandHandler _handler;
 
@@ -27,10 +29,12 @@ public class UpdateRestaurantCommandHandlerTests
         _mapperMock = new Mock<IMapper>();
         _restaurantAuthorizationServiceMock = new Mock<IRestaurantAuthorizationService>();
         _restaurantsRepositoryMock = new Mock<IRestaurantsRepository>();
+        _fileServiceMock = new Mock<IFileService>();
 
         _handler = new UpdateRestaurantCommandHandler(_loggerMock.Object, 
             _restaurantsRepositoryMock.Object,
             _mapperMock.Object,
+            _fileServiceMock.Object,
             _restaurantAuthorizationServiceMock.Object);
     }
 

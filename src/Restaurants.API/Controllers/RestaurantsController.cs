@@ -18,12 +18,13 @@ public class RestaurantsController(IMediator mediator) : ControllerBase
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [Authorize(Roles = UserRoles.Owner)]
-    public async Task<IActionResult> Create(CreateRestaurantCommand command)
+    public async Task<IActionResult> Create([FromForm] CreateRestaurantCommand command)
     {
         if (await mediator.Send(new IsRestaurantNameExistsQuery(command.Name)))
             return BadRequest("Restaurant name already exists");
 
         int id = await mediator.Send(command);
+
         return CreatedAtAction(nameof(GetById), new { id }, null);
     }
 
@@ -46,9 +47,10 @@ public class RestaurantsController(IMediator mediator) : ControllerBase
     [HttpPatch("{id}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> Update([FromRoute] int id, UpdateRestaurantCommand command)
+    public async Task<IActionResult> Update([FromRoute] int id, [FromForm] UpdateRestaurantCommand command)
     {
-        command.Id = id;
+        command.Id = id;        
+
         await mediator.Send(command);
 
         return NoContent();
@@ -62,5 +64,5 @@ public class RestaurantsController(IMediator mediator) : ControllerBase
     {
         await mediator.Send(new DeleteRestaurantCommand(id));
         return NoContent();
-    }             
+    }
 }

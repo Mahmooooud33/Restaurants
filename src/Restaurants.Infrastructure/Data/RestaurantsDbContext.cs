@@ -9,6 +9,7 @@ internal class RestaurantsDbContext(DbContextOptions<RestaurantsDbContext> optio
 {
     internal DbSet<Restaurant> Restaurants { get; set; }
     internal DbSet<Dish> Dishes { get; set; }
+    internal DbSet<DishImage> DishImages { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -26,5 +27,10 @@ internal class RestaurantsDbContext(DbContextOptions<RestaurantsDbContext> optio
             .HasMany(o => o.OwnedRestaurants)
             .WithOne(r => r.Owner)
             .HasForeignKey(r => r.OwnerId);
+
+        modelBuilder.Entity<Dish>()
+            .HasMany(di => di.ImagesUrls)
+            .WithOne()
+            .HasForeignKey(d => d.DishId);
     }
 }
