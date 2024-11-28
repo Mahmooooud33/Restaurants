@@ -1,4 +1,6 @@
-﻿using Azure.Storage.Blobs;
+﻿using Azure.Storage;
+using Azure.Storage.Blobs;
+using Azure.Storage.Sas;
 using Microsoft.Extensions.Options;
 using Restaurants.Domain.Interfaces;
 using Restaurants.Infrastructure.Configurations;
@@ -19,5 +21,33 @@ internal class BlobStorageService(IOptions<BlobStorageSettings> blobStorageSetti
 
         var blobUri = blobClient.Uri.ToString();
         return blobUri;
+    }
+
+    public string? GetBlobSasUrl(string? blobUrl)
+    {
+        if(blobUrl == null) return null;
+
+        var sasBuilder = new BlobSasBuilder()
+        {
+            BlobContainerName = _blobStorageSettings.LogosContainerName,
+            Resource = "b",
+            StartsOn = DateTimeOffset.UtcNow,
+            ExpiresOn = DateTimeOffset.UtcNow.AddMinutes(30),
+            BlobName = GetBlobNameFromUrl(blobUrl)
+        };
+
+        sasBuilder.SetPermissions(BlobSasPermissions.Read);
+
+        var blobServiceClient = new BlobServiceClient(_blobStorageSettings.ConnectionString);
+
+        var sasToken = sasBuilder.ToSasQueryParameters(new StorageSharedKeyCredential(blobServiceClient.AccountName, _blobStorageSettings.AccountKey)).ToString();
+
+        return $"{blobUrl}?{sasToken}";
+    }
+
+    public string GetBlobNameFromUrl(string blobUrl)
+    {
+        var uri = new Uri(blobUrl);
+        return uri.Segments.Last();
     }
 }

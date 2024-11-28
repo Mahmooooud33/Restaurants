@@ -2,7 +2,8 @@
 
 public class GetRestaurantByIdQueryHandler(ILogger<GetRestaurantByIdQueryHandler> logger,
     IRestaurantsRepository restaurantsRepository,
-    IMapper mapper) : IRequestHandler<GetRestaurantByIdQuery, RestaurantDto>
+    IMapper mapper,
+    IBlobStorageService blobStorageService) : IRequestHandler<GetRestaurantByIdQuery, RestaurantDto>
 {
     public async Task<RestaurantDto> Handle(GetRestaurantByIdQuery request, CancellationToken cancellationToken)
     {
@@ -12,6 +13,8 @@ public class GetRestaurantByIdQueryHandler(ILogger<GetRestaurantByIdQueryHandler
             ?? throw new NotFoundException(nameof(Restaurant), request.Id.ToString());
 
         var restaurantDto = mapper.Map<RestaurantDto>(restaurant);
+
+        restaurantDto.LogoSasUrl = blobStorageService.GetBlobSasUrl(restaurant.LogoUrl);
 
         return restaurantDto;
     }
