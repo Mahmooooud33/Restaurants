@@ -19,21 +19,18 @@ internal class FileService(IBlobStorageService blobStorageService) : IFileServic
                                && file.ContentType.Contains("image");
     }
 
-    public bool IsFileValid(List<IFormFile> files) 
+    public bool IsFilesValid(List<IFormFile> files) 
         => files.Count > 0 && files.All(IsFileValid);
-
-    public Stream GetFileStream(IFormFile file)
-    {
-        using var stream = file.OpenReadStream();
-        return stream;
-    }
 
     public async Task<string?> UploadFileAsync(IFormFile? file)
     {
         if(!IsFileValid(file!))
             return null;
 
-        var blobUri = await blobStorageService.UploadToBlobAsync(GetFileStream(file!), file!.FileName);
-        return blobUri;
+        using (var stream = file!.OpenReadStream())
+        {
+            var blobUri = await blobStorageService.UploadToBlobAsync(stream, file.FileName);
+            return blobUri;
+        }
     }
 }

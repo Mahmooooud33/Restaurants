@@ -6,6 +6,7 @@ using Restaurants.Application.Restaurants.Dtos;
 using Restaurants.Application.Restaurants.Queries.GetRestaurantById;
 using Restaurants.Domain.Entities;
 using Restaurants.Domain.Exceptions;
+using Restaurants.Domain.Interfaces;
 using Restaurants.Domain.Repositories;
 using Xunit;
 
@@ -16,6 +17,7 @@ public class GetRestaurantByIdQueryHandlerTests
     private readonly Mock<ILogger<GetRestaurantByIdQueryHandler>> _mockLogger;
     private readonly Mock<IRestaurantsRepository> _mockRepository;
     private readonly Mock<IMapper> _mockMapper;
+    private readonly Mock<IBlobStorageService> _mockBlobStorageService;
     private readonly GetRestaurantByIdQueryHandler _handler;
 
     public GetRestaurantByIdQueryHandlerTests()
@@ -23,11 +25,13 @@ public class GetRestaurantByIdQueryHandlerTests
         _mockLogger = new Mock<ILogger<GetRestaurantByIdQueryHandler>>();
         _mockRepository = new Mock<IRestaurantsRepository>();
         _mockMapper = new Mock<IMapper>();
+        _mockBlobStorageService = new Mock<IBlobStorageService>();
 
         _handler = new GetRestaurantByIdQueryHandler(
             _mockLogger.Object,
             _mockRepository.Object,
-            _mockMapper.Object);
+            _mockMapper.Object,
+            _mockBlobStorageService.Object);
     }
 
     [Fact]

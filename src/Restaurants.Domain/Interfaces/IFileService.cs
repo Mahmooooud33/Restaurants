@@ -5,7 +5,6 @@ namespace Restaurants.Domain.Interfaces;
 public interface IFileService
 {
     bool IsFileValid(IFormFile file);
-    bool IsFileValid(List<IFormFile> files);
-    Stream GetFileStream(IFormFile file);
+    bool IsFilesValid(List<IFormFile> files);
     Task<string?> UploadFileAsync(IFormFile? file);
 }
