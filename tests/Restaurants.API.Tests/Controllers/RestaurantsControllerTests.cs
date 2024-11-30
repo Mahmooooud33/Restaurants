@@ -34,7 +34,7 @@ public class RestaurantsControllerTests : IClassFixture<WebApplicationFactory<Pr
                     _ => _restaurantsRepositoryMock.Object));
 
                 services.Replace(ServiceDescriptor.Scoped(typeof(IRestaurantSeeder),
-                    _ => _restaurantsRepositoryMock.Object));
+                    _ => _restaurantSeederMock.Object));
             });
         });
 
